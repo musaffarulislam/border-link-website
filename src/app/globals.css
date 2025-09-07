@@ -1,26 +1,221 @@
 @import "tailwindcss";
+@import "react-phone-number-input/style.css";
 
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Define colors in @theme block for Tailwind v4 to recognize them */
+@theme {
+  --color-background: #0f172a;
+  --color-foreground: #f8fafc;
+  --color-primary: #0a2540;
+  --color-secondary: #34d399;
+  --color-accent: #f59e0b;
+  --color-muted: #cbd5e1;
+  --color-white: #ffffff;
+  --color-black: #1f1f1f;
+  --color-border: #334155;
+
+  /* Define fonts for Tailwind */
+  --font-poppins: Poppins, sans-serif;
+  --font-inter: Inter, sans-serif;
+}
+
+/* Your regular CSS variables for custom usage */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --primary: #0a2540;
+  --secondary: #34d399;
+  --accent: #f59e0b;
+  --muted: #cbd5e1;
+  --white: #ffffff;
+  --black: #1f1f1f;
+  --border: #334155;
+
+  /* Additional variables for shadcn/ui compatibility */
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent-foreground: 222.2 84% 4.9%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --input: 215 28% 17%;
+  --ring: 216 12.2% 83.9%;
+
+  /* Sidebar variables */
+  --sidebar-background: 0 0% 98%;
+  --sidebar-foreground: 240 5.3% 26.1%;
+  --sidebar-primary: 240 5.9% 10%;
+  --sidebar-primary-foreground: 0 0% 98%;
+  --sidebar-accent: 240 4.8% 95.9%;
+  --sidebar-accent-foreground: 240 5.9% 10%;
+  --sidebar-border: 220 13% 91%;
+  --sidebar-ring: 217.2 91.2% 59.8%;
+
+  --text-base: 0.75rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@media (min-width: 768px) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --text-base: 0.75rem;
   }
 }
 
+@media (min-width: 1024px) {
+  :root {
+    --text-base: 0.875rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --text-base: 1rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  :root {
+    --text-base: 1.125rem;
+  }
+}
+
+.dark {
+  --sidebar-background: 240 5.9% 10%;
+  --sidebar-foreground: 240 4.8% 95.9%;
+  --sidebar-primary: 224.3 76.3% 48%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 240 3.7% 15.9%;
+  --sidebar-accent-foreground: 240 4.8% 95.9%;
+  --sidebar-border: 240 3.7% 15.9%;
+  --sidebar-ring: 217.2 91.2% 59.8%;
+}
+
 body {
-  background: var(--background);
+  font-family: Inter, sans-serif;
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Custom utility classes */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Typography with proper Tailwind classes */
+h1 {
+  @apply text-xl md:text-2xl lg:text-3xl font-bold;
+  font-family: Poppins, sans-serif;
+}
+
+h2 {
+  @apply text-lg md:text-xl lg:text-2xl font-semibold;
+  font-family: Poppins, sans-serif;
+}
+
+h3 {
+  @apply text-base md:text-lg lg:text-xl font-semibold;
+  font-family: Poppins, sans-serif;
+}
+
+h4 {
+  @apply text-sm md:text-base lg:text-lg font-semibold;
+  font-family: Poppins, sans-serif;
+}
+
+p {
+  @apply text-base;
+  font-family: Inter, sans-serif;
+}
+
+h5 {
+  @apply text-sm;
+}
+
+h6 {
+  @apply text-xs;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Form input styles */
+input[type="number"] {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.custom-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.custom-swiper .swiper-slide {
+  display: flex;
+  height: auto; /* allow flex sizing */
+}
+
+/* Ensure the card fills the slide height */
+.custom-swiper .testimonial-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* important: stretch to slide height */
+  width: 100%;
+}
+
+/* Make the quote area grow so footer stays pinned to bottom */
+.custom-swiper .testimonial-quote {
+  flex-grow: 1;
+}
+
+/* Optional: ensure pagination dots sit below and are centered */
+.custom-swiper-pagination-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+/* Force pagination dots to be centered */
+.custom-pagination {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+/* Inactive dots */
+.custom-pagination .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #888; /* grey (inactive) */
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+/* Active dot */
+.custom-pagination .swiper-pagination-bullet-active {
+  background: var(--white); /* white for active */
+  opacity: 1;
+  transform: scale(1.2);
 }

@@ -1,0 +1,81 @@
+"use client";
+
+// components/ServicesFAQ.tsx
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
+
+const faqs = [
+  {
+    question: "How long does customs clearance take?",
+    answer: "Typically within 24–48 hours, depending on documentation.",
+  },
+  {
+    question: "Do you handle all UAE borders?",
+    answer: "Yes, including Hatta, Dubai, and other entry points.",
+  },
+  {
+    question: "Can Border Link assist with approvals?",
+    answer:
+      "Yes, we handle Dubai Municipality, Ministry, and product registrations efficiently.",
+  },
+  {
+    question: "Is there online support for customs queries?",
+    answer:
+      "Yes, our 24/7 E-Services platform allows you to track and manage your clearance online.",
+  },
+];
+
+export default function ServicesFAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  return (
+    <section id="services-faq" className="py-20 bg-card text-foreground">
+      <div className="container mx-auto px-6 max-w-4xl">
+        {/* Heading */}
+        <h2 className="text-3xl md:text-4xl font-poppins font-bold text-center mb-12">
+          Frequently Asked Questions
+        </h2>
+
+        {/* Accordion */}
+        <div className="space-y-4">
+          {faqs.map((faq, index) => (
+            <div
+              key={index}
+              className="border border-border rounded-lg shadow-sm bg-background"
+            >
+              <button
+                onClick={() => toggleFAQ(index)}
+                className="flex justify-between items-center w-full p-4 text-left"
+              >
+                <span className="font-medium">{faq.question}</span>
+                <ChevronDown
+                  className={`w-5 h-5 transform transition-transform ${
+                    openIndex === index ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              {openIndex === index && (
+                <div className="px-4 pb-4 text-muted text-sm">{faq.answer}</div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* CTA to full FAQ page */}
+        <div className="mt-8 text-center">
+          <a
+            href="/faq"
+            className="inline-block px-6 py-3 rounded-xl bg-primary text-white font-semibold shadow hover:bg-secondary transition"
+          >
+            View All FAQs
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
