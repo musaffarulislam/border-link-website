@@ -23,7 +23,7 @@ const blogs: Record<
     content: [
       "Clearing customs at the Hatta border requires careful preparation. Businesses and individuals need to ensure all documents are accurate and complete before submission.",
       "The first step is to gather all required paperwork, including commercial invoices, packing lists, certificates of origin, and any specialized permits for restricted goods.",
-      "Once documents are prepared, submit them through the Hatta customs portal or with the help of Border Link’s team. Our experts can guide you to avoid common errors and speed up approvals.",
+      "Once documents are prepared, submit them through the Hatta customs portal or with the help of Border Link's team. Our experts can guide you to avoid common errors and speed up approvals.",
       "Monitoring the status of your shipment is crucial. Border Link provides real-time tracking and updates to ensure your cargo moves without delays.",
       "Compliance with UAE customs regulations is mandatory. Our team ensures that all HS codes, duties, and documentation meet government standards, reducing the risk of fines or rejection.",
       "Following these steps helps ensure a seamless import/export process at Hatta, saving time and avoiding unnecessary complications.",
@@ -73,7 +73,7 @@ const blogs: Record<
       "Common errors include incomplete invoices, missing packing lists, and wrong HS codes.",
       "Incorrect or missing permits for restricted items can result in fines or shipment rejection.",
       "Failure to adhere to import/export regulations leads to unnecessary delays and financial penalties.",
-      "Using Border Link’s checklist and expert review minimizes mistakes, ensuring faster customs clearance.",
+      "Using Border Links checklist and expert review minimizes mistakes, ensuring faster customs clearance.",
       "Regular training for staff and proper documentation protocols are key to avoiding these common mistakes.",
     ],
     meta: {
@@ -90,21 +90,22 @@ const blogs: Record<
   },
 };
 
-// Generate Metadata dynamically
-export function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Metadata {
-  const blog = blogs[params.slug];
-
+// ✅ Fixed metadata generation for Next.js 15
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: Promise<{ slug: string }> 
+}): Promise<Metadata> {
+  const { slug } = await params; // Await the params Promise
+  const blog = blogs[slug];
+  
   if (!blog) {
     return {
       title: "Blog Not Found | Border Link",
       description: "The requested blog was not found.",
     };
   }
-
+  
   return {
     title: blog.meta.title,
     description: blog.meta.description,
@@ -112,14 +113,14 @@ export function generateMetadata({
   };
 }
 
-interface BlogPageProps {
-  params: {
-    slug: string;
-  };
-}
-
-export default function BlogPage({ params }: BlogPageProps) {
-  const blog = blogs[params.slug];
+// ✅ Fixed page component for Next.js 15
+export default async function BlogPage({ 
+  params 
+}: { 
+  params: Promise<{ slug: string }> 
+}) {
+  const { slug } = await params; // Await the params Promise
+  const blog = blogs[slug];
 
   if (!blog) {
     return <p className="text-center text-white py-20">Blog not found.</p>;
@@ -127,10 +128,7 @@ export default function BlogPage({ params }: BlogPageProps) {
 
   return (
     <div className="space-y-16">
-      {/* Blog Hero */}
       <BlogHero title={blog.title} subtitle={blog.subtitle} />
-
-      {/* Blog Content */}
       <section className="max-w-5xl mx-auto px-4 md:px-8 space-y-6">
         {blog.content.map((paragraph, idx) => (
           <p key={idx} className="text-gray-300 font-inter text-lg">
@@ -138,8 +136,6 @@ export default function BlogPage({ params }: BlogPageProps) {
           </p>
         ))}
       </section>
-
-      {/* Contact CTA */}
       <BlogContactCTA />
     </div>
   );

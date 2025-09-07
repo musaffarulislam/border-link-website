@@ -14,36 +14,36 @@ export const Navbar = () => {
         </Link>
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
-          <a href="/" className="text-white font-semibold hover:underline">
+          <Link href="/" className="text-white font-semibold hover:underline">
             Home
-          </a>
-          <a href="/about" className="text-white font-semibold hover:underline">
+          </Link>
+          <Link href="/about" className="text-white font-semibold hover:underline">
             About Us
-          </a>
-          <a
+          </Link>
+          <Link
             href="/services"
             className="text-white font-semibold hover:underline"
           >
             Services
-          </a>
-          <a
+          </Link>
+          <Link
             href="/industries"
             className="text-white font-semibold hover:underline"
           >
             Industries
-          </a>
-          <a href="/blog" className="text-white font-semibold hover:underline">
+          </Link>
+          <Link href="/blog" className="text-white font-semibold hover:underline">
             Blog
-          </a>
-          <a href="/faq" className="text-white font-semibold hover:underline">
+          </Link>
+          <Link href="/faq" className="text-white font-semibold hover:underline">
             FAQ
-          </a>
-          <a
+          </Link>
+          <Link
             href="/contact"
             className="text-white font-semibold hover:underline"
           >
             Contact
-          </a>
+          </Link>
         </div>
         {/* Mobile Nav */}
         <div className="md:hidden">
@@ -55,27 +55,27 @@ export const Navbar = () => {
             </SheetTrigger>
             <SheetContent side="right" className="bg-primary text-white">
               <nav className="flex flex-col gap-6 mt-8">
-                <a href="/" className="font-semibold hover:underline">
+                <Link href="/" className="font-semibold hover:underline">
                   Home
-                </a>
-                <a href="/about" className="font-semibold hover:underline">
+                </Link>
+                <Link href="/about" className="font-semibold hover:underline">
                   About Us
-                </a>
-                <a href="/services" className="font-semibold hover:underline">
+                </Link>
+                <Link href="/services" className="font-semibold hover:underline">
                   Services
-                </a>
-                <a href="/industries" className="font-semibold hover:underline">
+                </Link>
+                <Link href="/industries" className="font-semibold hover:underline">
                   Industries
-                </a>
-                <a href="/blog" className="font-semibold hover:underline">
+                </Link>
+                <Link href="/blog" className="font-semibold hover:underline">
                   Blog
-                </a>
-                <a href="/faq" className="font-semibold hover:underline">
+                </Link>
+                <Link href="/faq" className="font-semibold hover:underline">
                   FAQ
-                </a>
-                <a href="/contact" className="font-semibold hover:underline">
+                </Link>
+                <Link href="/contact" className="font-semibold hover:underline">
                   Contact
-                </a>
+                </Link>
               </nav>
             </SheetContent>
           </Sheet>

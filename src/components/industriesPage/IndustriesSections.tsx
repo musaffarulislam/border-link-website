@@ -1,7 +1,7 @@
 // components/IndustriesSections.tsx
 "use client";
 
-import { CheckCircle, Car, Truck, Wrench, Package } from "lucide-react";
+import { CheckCircle, Car, Wrench, Package } from "lucide-react";
 import Image from "next/image";
 import FoodImg from "@/assets/background-image8.jpg"; // replace with real images
 import CarImg from "@/assets/background-image8.jpg";

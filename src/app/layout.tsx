@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter, Poppins } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -13,11 +13,12 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Border Link | Customs Clearance & Logistics Dubai",
   description:
     "Border Link Cargo & Customs Broker LLC – Customs clearance & logistics services in Dubai and all UAE borders.",
 };
+
 export default function RootLayout({
   children,
 }: Readonly<{

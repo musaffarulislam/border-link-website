@@ -2,6 +2,7 @@
 import { Phone, MessageCircle, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
 import QRImage from "@/assets/QR-code.png"; // Add your QR code image in /assets
+import Image from "next/image";
 
 export default function ContactInfo() {
   const contacts = [
@@ -66,10 +67,12 @@ export default function ContactInfo() {
           {/* QR Code Section */}
           <div className="col-span-2 flex gap-8 items-center justify-center p-6 rounded-xl shadow-sm hover:shadow-md transition transform hover:scale-105 bg-white">
             <div className="mb-3">
-              <img
+              <Image
                 src={QRImage.src}
                 alt="Border Link QR Code"
                 className="w-40 h-40"
+                width={160}
+                height={160}
               />
             </div>
             <div>

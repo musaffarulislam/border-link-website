@@ -9,7 +9,7 @@ import { notFound } from "next/navigation";
 interface ServiceData {
   title: string;
   description: string;
-  content: any;
+  content: React.ReactNode;
 }
 
 const services: Record<string, ServiceData> = {
@@ -43,30 +43,37 @@ export async function generateStaticParams() {
   return Object.keys(services).map((slug) => ({ serviceSlug: slug }));
 }
 
+// ✅ Fixed metadata generation for Next.js 15
 export async function generateMetadata({
   params,
 }: {
-  params: { serviceSlug: string };
+  params: Promise<{ serviceSlug: string }>;
 }) {
-  const service = services[params.serviceSlug];
+  const { serviceSlug } = await params; // Await the params Promise
+  const service = services[serviceSlug];
+  
   if (!service) {
     return {
       title: "Service Not Found",
       description: "The requested service does not exist.",
     };
   }
+  
   return {
     title: service.title,
     description: service.description,
   };
 }
 
-export default function ServicePage({
+// ✅ Fixed page component for Next.js 15
+export default async function ServicePage({
   params,
 }: {
-  params: { serviceSlug: string };
+  params: Promise<{ serviceSlug: string }>;
 }) {
-  const service = services[params.serviceSlug];
+  const { serviceSlug } = await params; // Await the params Promise
+  const service = services[serviceSlug];
+  
   if (!service) return notFound();
 
   return (

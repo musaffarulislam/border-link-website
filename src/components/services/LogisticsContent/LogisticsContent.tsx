@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Truck, MapPin, CalendarCheck, Shield } from "lucide-react";
+import { MapPin, CalendarCheck, Shield } from "lucide-react";
 import ServicesFAQ from "../ServicesFAQ";
 
 export default function LogisticsContent() {
