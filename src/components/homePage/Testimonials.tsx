@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -56,7 +57,13 @@ export default function Testimonials() {
         >
           {testimonials.map((t, index) => (
             <SwiperSlide key={index} className="flex">
-              <div className="testimonial-card bg-background p-6 rounded-xl shadow-md border border-border h-full flex flex-col">
+              <motion.div
+                className="testimonial-card bg-background p-6 rounded-xl shadow-md border border-border h-full flex flex-col"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
                 <p className="testimonial-quote text-muted italic mb-6">
                   “{t.quote}”
                 </p>
@@ -64,7 +71,7 @@ export default function Testimonials() {
                   <h3 className="font-semibold">{t.name}</h3>
                   <p className="text-sm text-muted">{t.role}</p>
                 </div>
-              </div>
+              </motion.div>
             </SwiperSlide>
           ))}
         </Swiper>

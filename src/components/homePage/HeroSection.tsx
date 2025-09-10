@@ -1,7 +1,10 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import BackgroundImage1 from "@/assets/background-image1.jpg";
 import { Navbar } from "../common/Navbar";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
@@ -26,27 +29,48 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 px-6 max-w-3xl">
-        <h1 className="!text-3xl lg:!text-5xl font-poppins font-bold text-white">
+        <motion.h1
+          className="!text-3xl lg:!text-5xl font-poppins font-bold text-white"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
           Customs Clearance & Logistics Services in Dubai
-        </h1>
-        <p className="mt-4 text-lg text-gray-200 max-w-2xl mx-auto">
+        </motion.h1>
+        <motion.p
+          className="mt-4 text-lg text-gray-200 max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+        >
           Fast, reliable, and professional customs clearance at the Hatta–Dubai
           border and all UAE borders.
-        </p>
-        <div className="mt-6 flex justify-center gap-4">
-          <a
+        </motion.p>
+        <motion.div
+          className="mt-6 flex justify-center gap-4"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+        >
+          <motion.a
             href="/contact"
             className="px-6 py-3 rounded-xl bg-accent text-black font-semibold shadow-lg hover:bg-secondary transition"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 1.0 }}
           >
             Get a Quote
-          </a>
-          <a
+          </motion.a>
+          <motion.a
             href="https://wa.me/971566771884"
             className="px-6 py-3 rounded-xl bg-primary text-white font-semibold shadow-lg hover:bg-secondary transition"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 1.1 }}
           >
             WhatsApp Us
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   );

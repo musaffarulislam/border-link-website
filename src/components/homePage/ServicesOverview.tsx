@@ -1,4 +1,7 @@
+"use client";
+
 import { Truck, FileCheck, Globe, Laptop } from "lucide-react"; // icons
+import { motion } from "framer-motion";
 
 const services = [
   {
@@ -43,9 +46,13 @@ export default function ServicesOverview() {
         {/* Grid */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
               className="bg-card rounded-xl p-6 flex flex-col justify-between shadow-md border border-border hover:shadow-lg transition"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
             >
               <div className="flex-grow">
                 {/* Icon */}
@@ -66,7 +73,7 @@ export default function ServicesOverview() {
               >
                 Learn More →
               </a>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

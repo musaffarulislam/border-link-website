@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import AboutImage from "@/assets/background-image2.jpg";
+import { motion } from "framer-motion";
 
 export default function AboutSection() {
   return (
@@ -9,7 +12,12 @@ export default function AboutSection() {
     >
       <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
-        <div>
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.5 }}
+        >
           <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6">
             Who We Are
           </h2>
@@ -26,10 +34,16 @@ export default function AboutSection() {
           >
             Learn More
           </a>
-        </div>
+        </motion.div>
 
         {/* Right Image */}
-        <div className="relative w-full h-80 md:h-[400px] rounded-2xl overflow-hidden shadow-lg">
+        <motion.div
+          className="relative w-full h-80 md:h-[400px] rounded-2xl overflow-hidden shadow-lg"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: true, amount: 0.5 }}
+        >
           <Image
             src={AboutImage}
             alt="Border Link Team at Hatta Border"
@@ -37,7 +51,7 @@ export default function AboutSection() {
             className="object-cover"
             priority
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );
