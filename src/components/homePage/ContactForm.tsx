@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import PhoneInput from "react-phone-number-input";
@@ -17,10 +17,12 @@ const schema = z.object({
     .max(150, "Subject too long"),
   phone: z
     .string()
-    .refine(
-      (value) => value && value.startsWith("+971") && value.length >= 10,
-      { message: "Enter a valid UAE phone number" }
-    ),
+    .min(1, "Phone number is required")
+    .min(10, "Phone number is too short")
+    .max(16, "Phone number is too long") // Adjusted for international formats
+    .refine((value) => value && value.startsWith("+971"), {
+      message: "Enter a valid UAE phone number (+971...)",
+    }),
   message: z.string().min(5, "Message is required"),
 });
 
@@ -31,14 +33,52 @@ const ContactForm = () => {
     register,
     handleSubmit,
     setValue,
+    control,
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
     mode: "onChange",
   });
 
-  const onSubmit = (data: FormData) => {
-    console.log("Form Submitted ✅", data);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [status, setStatus] = React.useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
+
+  const onSubmit = async (data: FormData) => {
+    setIsSubmitting(true);
+    setStatus({ type: null, message: "" });
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+
+      if (!res.ok) {
+        throw new Error(result.error || "Something went wrong");
+      }
+
+      setStatus({ type: "success", message: "Message sent successfully!" });
+      // Reset form
+      setValue("name", "");
+      setValue("email", "");
+      setValue("subject", "");
+      setValue("phone", "");
+      setValue("message", "");
+    } catch (error: any) {
+      console.error("Submission error:", error);
+      setStatus({
+        type: "error",
+        message: "Failed to send message. Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -46,6 +86,19 @@ const ContactForm = () => {
       <h2 className="text-3xl md:text-4xl font-bold mb-6">
         Get in Touch With Us
       </h2>
+
+      {status.message && (
+        <div
+          className={`p-4 mb-6 rounded-lg text-center ${
+            status.type === "success"
+              ? "bg-green-100 text-green-700"
+              : "bg-red-100 text-red-700"
+          }`}
+        >
+          {status.message}
+        </div>
+      )}
+
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="bg-background border border-border rounded-xl p-6 shadow-md space-y-5"
@@ -58,6 +111,7 @@ const ContactForm = () => {
             type="text"
             placeholder="Enter your name"
             className="w-full px-5 py-3 border border-border rounded-lg bg-card text-foreground"
+            disabled={isSubmitting}
           />
           {errors.name && (
             <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
@@ -72,6 +126,7 @@ const ContactForm = () => {
             type="email"
             placeholder="Enter your email"
             className="w-full px-5 py-3 border border-border rounded-lg bg-card text-foreground"
+            disabled={isSubmitting}
           />
           {errors.email && (
             <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
@@ -81,17 +136,25 @@ const ContactForm = () => {
         {/* Phone */}
         <div>
           <label className="block font-medium mb-2">Phone</label>
-          <PhoneInput
-            defaultCountry="AE"
-            international
-            countryCallingCodeEditable={false}
-            onChange={(value) => setValue("phone", value ?? "")}
-            className="w-full px-5 py-3 border border-border rounded-lg bg-card text-foreground [&>input]:pl-4"
-            countrySelectProps={{
-              arrowComponent: () => (
-                <ChevronDown className="w-4 h-4 text-foreground ml-2" />
-              ),
-            }}
+          <Controller
+            name="phone"
+            control={control}
+            render={({ field }) => (
+              <PhoneInput
+                {...field}
+                defaultCountry="AE"
+                international
+                countryCallingCodeEditable={false}
+                className="w-full px-5 py-3 border border-border rounded-lg bg-card text-foreground [&>input]:pl-4"
+                disabled={isSubmitting}
+                onChange={(value) => field.onChange(value ?? "")} // Ensure undefined maps to empty string for safety
+                countrySelectProps={{
+                  arrowComponent: () => (
+                    <ChevronDown className="w-4 h-4 text-foreground ml-2" />
+                  ),
+                }}
+              />
+            )}
           />
           {errors.phone && (
             <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>
@@ -106,6 +169,7 @@ const ContactForm = () => {
             type="text"
             placeholder="Enter subject"
             className="w-full px-5 py-3 border border-border rounded-lg bg-card text-foreground"
+            disabled={isSubmitting}
           />
           {errors.subject && (
             <p className="text-red-500 text-sm mt-1">
@@ -122,6 +186,7 @@ const ContactForm = () => {
             rows={4}
             placeholder="Write your concern here..."
             className="w-full px-5 py-3 border border-border rounded-lg bg-card text-foreground"
+            disabled={isSubmitting}
           />
           {errors.message && (
             <p className="text-red-500 text-sm mt-1">
@@ -133,9 +198,10 @@ const ContactForm = () => {
         {/* Submit */}
         <button
           type="submit"
-          className="w-full px-6 py-3 rounded-xl bg-primary text-white font-semibold shadow hover:bg-secondary transition"
+          disabled={isSubmitting}
+          className="w-full px-6 py-3 rounded-xl bg-primary text-white font-semibold shadow hover:bg-secondary transition disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Send Message
+          {isSubmitting ? "Sending..." : "Send Message"}
         </button>
       </form>
 
