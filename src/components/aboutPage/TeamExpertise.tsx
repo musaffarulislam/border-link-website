@@ -66,8 +66,11 @@
 //   );
 // }
 
+"use client";
+
 // components/TeamExpertise.tsx
 import { User, Users, Briefcase } from "lucide-react";
+import { motion } from "framer-motion";
 
 const teamMembers = [
   { name: "Mohammed Ali", role: "Operations Head", icon: User },
@@ -75,28 +78,64 @@ const teamMembers = [
   { name: "Ahmed Rahman", role: "Logistics Coordinator", icon: Briefcase },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 export default function TeamExpertise() {
   return (
     <section className="py-16">
       <div className="container mx-auto px-4 md:px-8">
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold text-white font-poppins mb-6 text-center">
-          Our Team & Expertise
-        </h2>
-        <p className="text-gray-300 text-center mb-12 font-inter max-w-2xl mx-auto">
-          At Border Link, our strength lies in our people. Our skilled
-          professionals bring decades of combined experience in customs,
-          logistics, and compliance. Their in-depth knowledge of UAE regulations
-          ensures smooth operations for every shipment.
-        </p>
+        <div className="text-center mb-12">
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold text-white font-poppins mb-6"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Our Team & Expertise
+          </motion.h2>
+          <motion.p
+            className="text-gray-300 font-inter max-w-2xl mx-auto"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            At Border Link, our strength lies in our people. Our skilled
+            professionals bring decades of combined experience in customs,
+            logistics, and compliance. Their in-depth knowledge of UAE
+            regulations ensures smooth operations for every shipment.
+          </motion.p>
+        </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {teamMembers.map((member, idx) => {
             const Icon = member.icon;
             return (
-              <div
+              <motion.div
                 key={idx}
+                variants={itemVariants}
                 className="relative rounded-lg p-8 shadow-lg transform transition hover:-translate-y-2 hover:shadow-2xl bg-primary cursor-pointer group"
               >
                 {/* Icon */}
@@ -114,10 +153,10 @@ export default function TeamExpertise() {
 
                 {/* Hover Effect */}
                 <div className="absolute inset-0 rounded-lg bg-black/20 opacity-0 group-hover:opacity-100 transition"></div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

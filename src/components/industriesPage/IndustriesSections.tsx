@@ -7,6 +7,7 @@ import FoodImg from "@/assets/background-image8.jpg"; // replace with real image
 import CarImg from "@/assets/background-image8.jpg";
 import EquipmentImg from "@/assets/background-image9.jpg";
 import PersonalImg from "@/assets/background-image5.jpg";
+import { motion } from "framer-motion";
 
 export default function IndustriesSections() {
   return (
@@ -34,17 +35,28 @@ function FoodSection() {
       className="container mx-auto px-4 md:px-8 grid md:grid-cols-2 gap-8 items-center"
     >
       {/* Left: Image */}
-      <div className="h-72 md:h-96 relative rounded-lg overflow-hidden">
+      <motion.div
+        className="h-72 md:h-96 relative rounded-lg overflow-hidden"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <Image
           src={FoodImg}
           alt="Food & Perishables"
           fill
           className="object-cover"
         />
-      </div>
+      </motion.div>
 
       {/* Right: Text */}
-      <div>
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <h2 className="text-3xl font-bold text-white font-poppins mb-4">
           Food & Perishables Cargo Clearance
         </h2>
@@ -62,7 +74,7 @@ function FoodSection() {
             </li>
           ))}
         </ul>
-      </div>
+      </motion.div>
     </section>
   );
 }
@@ -78,7 +90,12 @@ function AutomotiveSection() {
   return (
     <section id="automotive" className="py-20">
       <div className="container mx-auto px-4 md:px-8 grid md:grid-cols-2 gap-8 items-center">
-        <div>
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <h2 className="text-3xl font-bold text-white font-poppins mb-4">
             Automotive & Vehicle Clearance
           </h2>
@@ -96,15 +113,21 @@ function AutomotiveSection() {
               </li>
             ))}
           </ul>
-        </div>
-        <div className="h-72 md:h-96 relative rounded-lg overflow-hidden">
+        </motion.div>
+        <motion.div
+          className="h-72 md:h-96 relative rounded-lg overflow-hidden"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <Image
             src={CarImg}
             alt="Automotive Clearance"
             fill
             className="object-cover"
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -123,15 +146,26 @@ function EquipmentSection() {
       id="equipment"
       className="container mx-auto px-4 md:px-8 grid md:grid-cols-2 gap-8 items-center"
     >
-      <div className="h-72 md:h-96 relative rounded-lg overflow-hidden">
+      <motion.div
+        className="h-72 md:h-96 relative rounded-lg overflow-hidden"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <Image
           src={EquipmentImg}
           alt="Industrial Equipment"
           fill
           className="object-cover"
         />
-      </div>
-      <div>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <h2 className="text-3xl font-bold text-white font-poppins mb-4">
           Industrial Equipment & Machinery Clearance
         </h2>
@@ -148,7 +182,7 @@ function EquipmentSection() {
             </li>
           ))}
         </ul>
-      </div>
+      </motion.div>
     </section>
   );
 }
@@ -166,7 +200,12 @@ function PersonalSection() {
       id="personal"
       className="container mx-auto px-4 md:px-8 grid md:grid-cols-2 gap-8 items-center"
     >
-      <div>
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <h2 className="text-3xl font-bold text-white font-poppins mb-4">
           Personal Goods & Relocation Cargo
         </h2>
@@ -183,15 +222,21 @@ function PersonalSection() {
             </li>
           ))}
         </ul>
-      </div>
-      <div className="h-72 md:h-96 relative rounded-lg overflow-hidden">
+      </motion.div>
+      <motion.div
+        className="h-72 md:h-96 relative rounded-lg overflow-hidden"
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <Image
           src={PersonalImg}
           alt="Personal Goods"
           fill
           className="object-cover"
         />
-      </div>
+      </motion.div>
     </section>
   );
 }
@@ -214,21 +259,31 @@ function GeneralCargoSection() {
   return (
     <section id="cargo" className="py-20 bg-primary/20">
       <div className="container mx-auto px-4 md:px-8">
-        <h2 className="text-3xl font-bold text-white font-poppins mb-12 text-center">
+        <motion.h2
+          className="text-3xl font-bold text-white font-poppins mb-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           General Cargo & Trade Goods
-        </h2>
+        </motion.h2>
         <div className="grid md:grid-cols-4 gap-6">
           {highlights.map((item, idx) => (
-            <div
+            <motion.div
               key={idx}
               className="bg-primary/30 p-6 rounded-lg shadow hover:scale-105 transition text-center"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              viewport={{ once: true }}
             >
               <Package className="w-10 h-10 text-amber-500 mx-auto mb-4" />
               <h3 className="text-white font-semibold text-xl mb-2">
                 {item.title}
               </h3>
               <p className="text-gray-200 text-sm">{item.desc}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -1,8 +1,9 @@
-// components/BlogSection.tsx
+// components/FAQSection.tsx
 "use client";
 
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const faqs = [
   {
@@ -107,6 +108,21 @@ const faqs = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+};
+
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const toggleFAQ = (index: number) =>
@@ -115,11 +131,18 @@ export default function FAQSection() {
   return (
     <section id="faq" className="py-20 bg-card text-foreground">
       <div className="container mx-auto px-6 max-w-4xl">
-        <div className="space-y-4">
+        <motion.div
+          className="space-y-4"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {faqs.map((faq, idx) => (
-            <div
+            <motion.div
               key={idx}
               className="border border-border rounded-lg shadow-sm bg-background"
+              variants={itemVariants}
             >
               <button
                 onClick={() => toggleFAQ(idx)}
@@ -135,9 +158,9 @@ export default function FAQSection() {
               {openIndex === idx && (
                 <div className="px-4 pb-4 text-muted text-sm">{faq.answer}</div>
               )}
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

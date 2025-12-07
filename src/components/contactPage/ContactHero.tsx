@@ -1,8 +1,11 @@
 // components/ContactHero.tsx
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import HeroBg from "@/assets/background-image8.jpg"; // Replace with your hero image path
 import { Navbar } from "../common/Navbar";
+import { motion } from "framer-motion";
 
 export default function ContactHero() {
   return (
@@ -22,7 +25,12 @@ export default function ContactHero() {
         </div>
 
         {/* Text Content */}
-        <div className="px-4 md:px-8 text-white max-w-3xl">
+        <motion.div
+          className="px-4 md:px-8 text-white max-w-3xl"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <h1 className="!text-4xl md:!text-5xl font-bold mb-4 font-poppins">
             Get in Touch with Border Link
           </h1>
@@ -38,7 +46,7 @@ export default function ContactHero() {
               Submit Inquiry
             </div>
           </Link>
-        </div>
+        </motion.div>
       </section>
     </div>
   );

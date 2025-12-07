@@ -1,8 +1,11 @@
 // components/BlogHero.tsx
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import HeroBg from "@/assets/background-image6.jpg"; // Replace with your blog hero image
 import { Navbar } from "../common/Navbar";
+import { motion } from "framer-motion";
 
 interface IBlogHeroProps {
   title?: string;
@@ -27,7 +30,12 @@ export default function BlogHero({ title, subtitle }: IBlogHeroProps) {
           <div className="absolute inset-0 bg-black/70" /> {/* Dark overlay */}
         </div>
 
-        <div className="px-4 md:px-8 text-white max-w-3xl">
+        <motion.div
+          className="px-4 md:px-8 text-white max-w-3xl"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <h1 className="!text-4xl md:!text-5xl font-bold mb-4 font-poppins">
             {title ?? "Blog & Resources"}
           </h1>
@@ -40,7 +48,7 @@ export default function BlogHero({ title, subtitle }: IBlogHeroProps) {
               Get a Quote
             </div>
           </Link>
-        </div>
+        </motion.div>
       </section>
     </div>
   );

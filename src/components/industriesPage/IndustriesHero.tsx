@@ -6,6 +6,8 @@ import { Navbar } from "../common/Navbar";
 import HeroBg from "@/assets/background-image6.jpg"; // replace with cargo/port bg
 import Image from "next/image";
 
+import { motion } from "framer-motion";
+
 export default function IndustriesHero() {
   return (
     <div>
@@ -23,7 +25,12 @@ export default function IndustriesHero() {
           <div className="absolute inset-0 bg-black/80" /> {/* Dark overlay */}
         </div>
 
-        <div className="px-4 md:px-8 text-white max-w-3xl">
+        <motion.div
+          className="px-4 md:px-8 text-white max-w-3xl"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <h1 className="!text-4xl md:!text-5xl font-bold mb-4 font-poppins">
             Industries We Serve
           </h1>
@@ -39,7 +46,7 @@ export default function IndustriesHero() {
               Get a Quote
             </div>
           </Link>
-        </div>
+        </motion.div>
       </section>
     </div>
   );

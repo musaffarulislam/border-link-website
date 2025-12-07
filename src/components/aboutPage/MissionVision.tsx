@@ -1,5 +1,8 @@
+"use client";
+
 // components/MissionVision.tsx
 import { Target, Eye } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function MissionVision() {
   return (
@@ -11,7 +14,13 @@ export default function MissionVision() {
         {/* Cards Container */}
         <div className="flex flex-col md:flex-row gap-8">
           {/* Mission Card */}
-          <div className="md:w-1/2 rounded-lg p-8 shadow-lg bg-primary transform transition hover:-translate-y-2 hover:shadow-2xl">
+          <motion.div
+            className="md:w-1/2 rounded-lg p-8 shadow-lg bg-primary transform transition hover:-translate-y-2 hover:shadow-2xl"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
             <div className="flex items-center mb-4">
               <Target className="text-amber-500 w-8 h-8 mr-3" />
               <h3 className="text-2xl font-semibold text-white font-poppins">
@@ -23,10 +32,16 @@ export default function MissionVision() {
               operations with accuracy, compliance, and professionalism —
               enabling our clients to focus on growing their businesses.
             </p>
-          </div>
+          </motion.div>
 
           {/* Vision Card */}
-          <div className="md:w-1/2 rounded-lg p-8 shadow-lg bg-primary transform transition hover:-translate-y-2 hover:shadow-2xl">
+          <motion.div
+            className="md:w-1/2 rounded-lg p-8 shadow-lg bg-primary transform transition hover:-translate-y-2 hover:shadow-2xl"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             <div className="flex items-center mb-4">
               <Eye className="text-amber-500 w-8 h-8 mr-3" />
               <h3 className="text-2xl font-semibold text-white font-poppins">
@@ -38,7 +53,7 @@ export default function MissionVision() {
               across the UAE, recognized for reliability, transparency, and
               exceptional customer service.
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

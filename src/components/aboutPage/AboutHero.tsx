@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import HeroBg from "@/assets/background-image2.jpg";
 import { Navbar } from "../common/Navbar";
+import { motion } from "framer-motion";
 
 export default function AboutHero() {
   return (
@@ -21,7 +24,12 @@ export default function AboutHero() {
         </div>
 
         {/* Content */}
-        <div className="px-4 md:px-8 text-white max-w-2xl">
+        <motion.div
+          className="px-4 md:px-8 text-white max-w-2xl"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <h1 className="!text-4xl font-bold mb-4">
             About Border Link Cargo & Customs Broker LLC
           </h1>
@@ -34,7 +42,7 @@ export default function AboutHero() {
               Contact Us
             </div>
           </Link>
-        </div>
+        </motion.div>
       </section>
     </div>
   );
