@@ -1,7 +1,6 @@
-// components/AboutHero.tsx
 import Link from "next/link";
 import Image from "next/image";
-import HeroBg from "@/assets/background-image2.jpg"; // Replace with your hero image path
+import HeroBg from "@/assets/background-image2.jpg";
 import { Navbar } from "../common/Navbar";
 
 export default function AboutHero() {
