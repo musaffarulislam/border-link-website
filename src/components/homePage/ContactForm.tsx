@@ -70,7 +70,7 @@ const ContactForm = () => {
       setValue("subject", "");
       setValue("phone", "");
       setValue("message", "");
-    } catch (error: any) {
+    } catch (error) {
       console.error("Submission error:", error);
       setStatus({
         type: "error",
