@@ -5,6 +5,14 @@ import OurStory from "@/components/aboutPage/OurStory";
 import TeamExpertise from "@/components/aboutPage/TeamExpertise";
 import React from "react";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Learn more about Border Link, our mission, and our experienced team.",
+};
+
 const page = () => {
   return (
     <main>

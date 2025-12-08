@@ -39,9 +39,9 @@ export default function ServicesOverview() {
     >
       <div className="container mx-auto px-6">
         {/* Heading */}
-        <h1 className="text-3xl md:text-4xl font-poppins font-bold text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-poppins font-bold text-center mb-12">
           Our Core Services
-        </h1>
+        </h2>
 
         {/* Grid */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
