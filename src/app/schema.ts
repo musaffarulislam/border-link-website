@@ -16,6 +16,11 @@ export const siteMetadata: Metadata = {
     "Border Link",
     "Hatta Border",
     "Customs Broker",
+    "Product Registration Dubai",
+    "Dubai Municipality Approval",
+    "Land Transport UAE",
+    "Customs Broker UAE",
+    "Import Export Agent",
   ],
   alternates: {
     canonical: "./",
