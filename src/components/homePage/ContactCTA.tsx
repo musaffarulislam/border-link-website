@@ -20,7 +20,7 @@ const contactDetails = [
     icon: MessageCircle,
     label: "WhatsApp",
     lines: [
-      { text: "+971 56 345 4684", href: "https://wa.me/971563454684", external: true },
+      { text: "+971 56 677 1884", href: "https://wa.me/971566771884", external: true },
       { text: "+971 52 623 2117", href: "https://wa.me/971526232117", external: true },
     ],
   },
