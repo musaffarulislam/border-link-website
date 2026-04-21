@@ -10,33 +10,40 @@ const contactDetails = [
   {
     icon: Phone,
     label: "Call Us",
-    lines: ["+971 56 677 1884", "+971 52 623 2117", "+971 56 345 4684"],
-    href: "tel:+971566771884",
+    lines: [
+      { text: "+971 56 677 1884", href: "tel:+971566771884" },
+      { text: "+971 52 623 2117", href: "tel:+971526232117" },
+      { text: "+971 56 345 4684", href: "tel:+971563454684" },
+    ],
   },
   {
     icon: MessageCircle,
     label: "WhatsApp",
-    lines: ["Chat with us anytime"],
-    href: "https://wa.me/971566771884",
-    external: true,
+    lines: [
+      { text: "+971 56 345 4684", href: "https://wa.me/971563454684", external: true },
+      { text: "+971 52 623 2117", href: "https://wa.me/971526232117", external: true },
+    ],
   },
   {
     icon: Mail,
     label: "Email",
-    lines: ["service@borderlink.info"],
-    href: "mailto:service@borderlink.info",
+    lines: [
+      { text: "service@borderlink.info", href: "mailto:service@borderlink.info" },
+    ],
   },
   {
     icon: MapPin,
     label: "Location",
-    lines: ["Hatta Border, Dubai, UAE"],
-    href: "#",
+    lines: [
+      { text: "Hatta Border, Dubai, UAE", href: "#" },
+    ],
   },
   {
     icon: Clock,
     label: "Hours",
-    lines: ["Open 24 / 7"],
-    href: "#",
+    lines: [
+      { text: "Open 24 / 7", href: "#" },
+    ],
   },
 ];
 
@@ -92,8 +99,6 @@ export default function ContactSection() {
               <div className="space-y-4">
                 {contactDetails.map((item, i) => {
                   const Icon = item.icon;
-                  const isLink = item.href !== "#";
-                  const Comp = isLink ? "a" : "div";
                   return (
                     <motion.div
                       key={i}
@@ -101,38 +106,42 @@ export default function ContactSection() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true, amount: 0 }}
                       transition={{ duration: 0.4, delay: 0.2 + i * 0.07 }}
+                      className="flex items-start gap-3"
                     >
-                      <Comp
-                        {...(isLink
-                          ? {
-                              href: item.href,
-                              target: item.external ? "_blank" : undefined,
-                              rel: item.external
-                                ? "noopener noreferrer"
-                                : undefined,
+                      <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-accent flex items-center justify-center">
+                        <Icon className="w-4 h-4 text-black" />
+                      </div>
+                      <div>
+                        <p className="text-xs text-white/60 font-semibold uppercase tracking-wide mb-1">
+                          {item.label}
+                        </p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {item.lines.map((line, j) => {
+                            const isLink = line.href !== "#";
+                            if (isLink) {
+                              return (
+                                <a
+                                  key={j}
+                                  href={line.href}
+                                  target={"external" in line && line.external ? "_blank" : undefined}
+                                  rel={"external" in line && line.external ? "noopener noreferrer" : undefined}
+                                  className="inline-block bg-accent hover:bg-secondary text-black text-xs font-bold px-2.5 py-1 rounded-md leading-tight transition-colors"
+                                >
+                                  {line.text}
+                                </a>
+                              );
                             }
-                          : {})}
-                        className="flex items-start gap-3 group"
-                      >
-                        <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-accent flex items-center justify-center">
-                          <Icon className="w-4 h-4 text-black" />
-                        </div>
-                        <div>
-                          <p className="text-xs text-white/60 font-semibold uppercase tracking-wide mb-1">
-                            {item.label}
-                          </p>
-                          <div className="flex flex-wrap gap-1.5">
-                            {item.lines.map((line, j) => (
+                            return (
                               <span
                                 key={j}
                                 className="inline-block bg-accent text-black text-xs font-bold px-2.5 py-1 rounded-md leading-tight"
                               >
-                                {line}
+                                {line.text}
                               </span>
-                            ))}
-                          </div>
+                            );
+                          })}
                         </div>
-                      </Comp>
+                      </div>
                     </motion.div>
                   );
                 })}
