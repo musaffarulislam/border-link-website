@@ -41,6 +41,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="COiC9wXnQZvPfU+B8QkcEQ"
+          async
+        />
+      </head>
       <body className={`${inter.variable} ${poppins.variable} antialiased`}>
         <GoogleAnalytics />
         <script
