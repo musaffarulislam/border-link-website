@@ -104,7 +104,7 @@ export default function TeamExpertise() {
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
           >
             Our Team & Expertise
           </motion.h2>
@@ -113,7 +113,7 @@ export default function TeamExpertise() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
           >
             At Border Link, our strength lies in our people. Our skilled
             professionals bring decades of combined experience in customs,
@@ -128,7 +128,7 @@ export default function TeamExpertise() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
         >
           {teamMembers.map((member, idx) => {
             const Icon = member.icon;

@@ -8,9 +8,17 @@ import React from "react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "About Border Link – Dubai's Trusted Customs Broker",
   description:
-    "Learn more about Border Link, our mission, and our experienced team.",
+    "Learn about Border Link Cargo & Customs Broker LLC – our mission, expert team, and years of experience simplifying customs clearance and logistics at Hatta and all UAE borders.",
+  alternates: { canonical: "https://borderlink.info/about" },
+  keywords: [
+    "about Border Link Dubai",
+    "customs broker company UAE",
+    "logistics company Dubai",
+    "Hatta border customs experts",
+    "freight forwarding company UAE",
+  ],
 };
 
 const page = () => {

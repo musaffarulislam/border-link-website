@@ -3,6 +3,7 @@ import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { jsonLd, siteMetadata } from "./schema";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import { Navbar } from "@/components/common/Navbar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -30,6 +31,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <Navbar />
         {children}
       </body>
     </html>

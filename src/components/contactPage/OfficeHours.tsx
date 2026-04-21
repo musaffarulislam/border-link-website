@@ -34,7 +34,7 @@ export default function OfficeHours() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold font-poppins text-center mb-4">
             Office Hours
@@ -50,7 +50,7 @@ export default function OfficeHours() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
         >
           {hours.map((item, idx) => (
             <motion.div

@@ -57,7 +57,7 @@ export default function ServicesIntro() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white font-poppins mb-4">
             Trusted Customs & Logistics Partner in Dubai
@@ -76,7 +76,7 @@ export default function ServicesIntro() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
         >
           {services.map((service, idx) => {
             const Icon = service.icon;

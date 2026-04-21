@@ -40,7 +40,7 @@ function FoodSection() {
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0 }}
       >
         <Image
           src={FoodImg}
@@ -55,7 +55,7 @@ function FoodSection() {
         initial={{ opacity: 0, x: 50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0 }}
       >
         <h2 className="text-3xl font-bold text-white font-poppins mb-4">
           Food & Perishables Cargo Clearance
@@ -94,7 +94,7 @@ function AutomotiveSection() {
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
         >
           <h2 className="text-3xl font-bold text-white font-poppins mb-4">
             Automotive & Vehicle Clearance
@@ -119,7 +119,7 @@ function AutomotiveSection() {
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
         >
           <Image
             src={CarImg}
@@ -151,7 +151,7 @@ function EquipmentSection() {
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0 }}
       >
         <Image
           src={EquipmentImg}
@@ -164,7 +164,7 @@ function EquipmentSection() {
         initial={{ opacity: 0, x: 50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0 }}
       >
         <h2 className="text-3xl font-bold text-white font-poppins mb-4">
           Industrial Equipment & Machinery Clearance
@@ -204,7 +204,7 @@ function PersonalSection() {
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0 }}
       >
         <h2 className="text-3xl font-bold text-white font-poppins mb-4">
           Personal Goods & Relocation Cargo
@@ -228,7 +228,7 @@ function PersonalSection() {
         initial={{ opacity: 0, x: 50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0 }}
       >
         <Image
           src={PersonalImg}
@@ -264,7 +264,7 @@ function GeneralCargoSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
         >
           General Cargo & Trade Goods
         </motion.h2>
@@ -276,7 +276,7 @@ function GeneralCargoSection() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0 }}
             >
               <Package className="w-10 h-10 text-amber-500 mx-auto mb-4" />
               <h3 className="text-white font-semibold text-xl mb-2">

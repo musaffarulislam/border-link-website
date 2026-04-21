@@ -2,17 +2,11 @@
 
 import React from "react";
 import Link from "next/link";
-import { Navbar } from "@/components/common/Navbar";
 import { motion } from "framer-motion";
 
 export default function NotFound() {
   return (
     <div className="relative min-h-screen bg-zinc-950 text-white selection:bg-primary selection:text-white">
-      {/* Navbar */}
-      <div className="absolute top-0 left-0 right-0 z-20">
-        <Navbar />
-      </div>
-
       <div className="flex flex-col items-center justify-center min-h-screen px-4 text-center">
         <motion.h1
           className="text-6xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"

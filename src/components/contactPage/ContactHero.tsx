@@ -1,53 +1,87 @@
-// components/ContactHero.tsx
 "use client";
 
 import Link from "next/link";
 import Image from "next/image";
-import HeroBg from "@/assets/background-image8.jpg"; // Replace with your hero image path
-import { Navbar } from "../common/Navbar";
+import HeroBg from "@/assets/background-image8.jpg";
 import { motion } from "framer-motion";
 
 export default function ContactHero() {
   return (
-    <div>
-      <Navbar />
-      <section className="relative w-full h-[60vh] flex items-center justify-center text-center">
-        {/* Background Image */}
-        <div className="absolute inset-0 -z-10">
-          <Image
-            src={HeroBg}
-            alt="Contact Border Link for Customs Clearance"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black/60" /> {/* Dark overlay */}
-        </div>
+    <section className="relative w-full h-[60vh] min-h-[480px] flex items-center justify-center text-center overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src={HeroBg}
+          alt="Contact Border Link for Customs Clearance"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/90 via-black/60 to-black/30" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary/40 via-transparent to-transparent" />
 
-        {/* Text Content */}
+      {/* Content */}
+      <div className="px-4 md:px-8 text-white max-w-3xl relative z-10">
+        {/* Badge */}
         <motion.div
-          className="px-4 md:px-8 text-white max-w-3xl"
-          initial={{ opacity: 0, y: 30 }}
+          className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-white/90 text-xs sm:text-sm font-medium mb-5"
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <h1 className="!text-4xl md:!text-5xl font-bold mb-4 font-poppins">
-            Get in Touch with Border Link
-          </h1>
-          <p className="text-lg md:text-2xl mb-6 font-inter">
-            We’re here to assist you with all your customs clearance, logistics,
-            and approvals. Reach out today for expert guidance and hassle-free
-            services across Dubai and UAE borders.
-          </p>
+          <motion.span
+            className="w-2 h-2 rounded-full bg-accent flex-shrink-0"
+            animate={{ scale: [1, 1.4, 1], opacity: [0.7, 1, 0.7] }}
+            transition={{ duration: 1.8, repeat: Infinity }}
+          />
+          Available 24/7 for Your Customs Needs
+        </motion.div>
 
-          {/* CTA Button */}
-          <Link href="#contact-form">
-            <div className="inline-block bg-amber-500 text-white px-6 py-3 rounded-md font-medium hover:bg-emerald-500 transition">
+        <motion.h1
+          className="!text-4xl md:!text-5xl font-bold mb-4 font-poppins leading-tight"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          Get in Touch with{" "}
+          <span className="text-accent relative inline-block">
+            Border Link
+            <motion.span
+              className="absolute -bottom-1 left-0 h-0.5 bg-accent/60 rounded-full"
+              initial={{ width: "0%" }}
+              animate={{ width: "100%" }}
+              transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
+            />
+          </span>
+        </motion.h1>
+
+        <motion.p
+          className="text-base md:text-lg text-white/85 mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-md"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.35 }}
+        >
+          We&apos;re here to assist you with all your customs clearance, logistics, and approvals.
+          Reach out today for expert guidance across Dubai and UAE borders.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+        >
+          <Link href="#contact">
+            <motion.div
+              className="inline-block bg-accent text-black px-8 py-3.5 rounded-xl font-bold text-sm shadow-lg shadow-accent/25 hover:bg-secondary transition-colors"
+              whileHover={{ scale: 1.04, y: -2 }}
+              whileTap={{ scale: 0.97 }}
+            >
               Submit Inquiry
-            </div>
+            </motion.div>
           </Link>
         </motion.div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }

@@ -1,76 +1,84 @@
 "use client";
 
-import Image from "next/image";
-import SupportImg from "@/assets/background-image3.jpg"; // replace with your square images
-import TeamImg from "@/assets/background-image4.jpg";
-import ProcessImg from "@/assets/background-image5.jpg";
-import PartnerImg from "@/assets/background-image6.jpg";
+import { Shield, Clock, Zap, Handshake } from "lucide-react";
 import { motion } from "framer-motion";
 
 const uspPoints = [
   {
+    icon: Clock,
     title: "24/7 Support",
-    description: "Always available to handle urgent shipments.",
-    image: SupportImg,
+    description:
+      "Always available to handle urgent shipments and time-sensitive clearances.",
   },
   {
+    icon: Shield,
     title: "Expert Team",
-    description: "Decades of combined customs clearance experience.",
-    image: TeamImg,
+    description:
+      "Seasoned professionals with deep knowledge of UAE customs regulations.",
   },
   {
+    icon: Zap,
     title: "Fast Processing",
-    description: "Minimized delays with efficient documentation.",
-    image: ProcessImg,
+    description:
+      "Minimized delays through efficient documentation and strong authority relationships.",
   },
   {
+    icon: Handshake,
     title: "Trusted Partner",
-    description: "Serving Dubai’s logistics industry for years.",
-    image: PartnerImg,
+    description:
+      "Serving Dubai's import/export community with reliability and transparency.",
   },
 ];
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-choose-us" className="py-16 bg-card text-foreground">
+    <section id="why-choose-us" className="py-20 bg-background text-foreground">
       <div className="container mx-auto px-6">
-        {/* Section Heading */}
-        <motion.h2
-          className="text-3xl md:text-4xl font-poppins font-bold text-center mb-12"
-          initial={{ opacity: 0, y: 40 }}
+        {/* Heading */}
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
-          Why Businesses Choose Border Link
-        </motion.h2>
+          <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-3">
+            Why Businesses Choose Border Link
+          </h2>
+          <p className="text-muted max-w-xl mx-auto text-sm">
+            We make customs clearance simple, fast, and stress-free.
+          </p>
+        </motion.div>
 
-        {/* 2x2 Grid */}
-        <div className="grid gap-10 md:grid-cols-2">
+        {/* Grid */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {uspPoints.map((usp, index) => (
             <motion.div
               key={index}
-              className="flex items-center gap-6 bg-background rounded-xl p-6 shadow-md border border-border hover:shadow-lg transition"
-              initial={{ opacity: 0, y: 40 }}
+              className="group bg-primary/30 border border-border rounded-2xl p-6 flex flex-col gap-4 hover:border-accent/30 transition-all duration-300 hover:shadow-lg hover:shadow-accent/5"
+              initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.12 }}
+              whileHover={{ y: -4 }}
             >
-              {/* Bigger Square Image */}
-              <div className="w-28 h-28 flex-shrink-0 rounded-lg overflow-hidden">
-                <Image
-                  src={usp.image}
-                  alt={usp.title}
-                  width={112}
-                  height={112}
-                  className="w-full h-full object-cover"
-                />
+              {/* Icon row with step number */}
+              <div className="flex items-center gap-3">
+                <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-accent/15 text-accent border border-accent/20 group-hover:bg-accent group-hover:text-black transition-all duration-300 flex-shrink-0">
+                  <usp.icon size={20} />
+                </div>
+                <span className="text-2xl font-black text-accent/30 leading-none">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
               </div>
 
-              {/* Text */}
               <div>
-                <h3 className="text-xl font-semibold mb-2">{usp.title}</h3>
-                <p className="text-muted text-base">{usp.description}</p>
+                <h3 className="font-bold text-base font-poppins mb-2">
+                  {usp.title}
+                </h3>
+                <p className="text-muted text-sm leading-relaxed">
+                  {usp.description}
+                </p>
               </div>
             </motion.div>
           ))}

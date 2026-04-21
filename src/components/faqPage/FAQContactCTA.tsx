@@ -13,7 +13,7 @@ export default function FAQContactCTA() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
         >
           {/* Heading */}
           <h2 className="text-3xl md:text-4xl font-bold text-white font-poppins mb-4">

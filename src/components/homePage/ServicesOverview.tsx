@@ -1,6 +1,6 @@
 "use client";
 
-import { Truck, FileCheck, Globe, Laptop } from "lucide-react"; // icons
+import { Truck, FileCheck, Globe, Laptop, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const services = [
@@ -33,47 +33,62 @@ const services = [
 
 export default function ServicesOverview() {
   return (
-    <section
-      id="services"
-      className="py-16 lg:py-24 bg-background text-foreground"
-    >
+    <section id="services" className="py-20 bg-background text-foreground">
       <div className="container mx-auto px-6">
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-poppins font-bold text-center mb-12">
-          Our Core Services
-        </h2>
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-3">
+            Our Core Services
+          </h2>
+          <p className="text-muted max-w-xl mx-auto text-sm">
+            End-to-end customs clearance and logistics solutions across Dubai
+            and the UAE.
+          </p>
+        </motion.div>
 
         {/* Grid */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service, index) => (
-            <motion.div
+            <motion.a
               key={index}
-              className="bg-card rounded-xl p-6 flex flex-col justify-between shadow-md border border-border hover:shadow-lg transition"
-              initial={{ opacity: 0, y: 40 }}
+              href={service.href}
+              className="group relative bg-primary/40 border border-border rounded-2xl p-6 flex flex-col gap-4 hover:border-accent/40 hover:bg-primary/60 transition-all duration-300 shadow-sm hover:shadow-accent/10 hover:shadow-lg cursor-pointer"
+              initial={{ opacity: 0, y: 36 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
+              viewport={{ once: true, amount: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.12 }}
+              whileHover={{ y: -4 }}
             >
-              <div className="flex-grow">
-                {/* Icon */}
-                <div className="flex items-center justify-center w-12 h-12 mb-4 rounded-lg bg-primary text-white">
-                  <service.icon size={24} />
-                </div>
-
-                {/* Title */}
-                <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-
-                {/* Description */}
-                <p className="text-muted text-sm mb-4">{service.description}</p>
-              </div>
-              {/* Link */}
-              <a
-                href={service.href}
-                className="text-accent font-medium hover:text-secondary transition"
+              {/* Icon */}
+              <motion.div
+                className="flex items-center justify-center w-12 h-12 rounded-xl bg-accent/15 text-accent border border-accent/20 group-hover:bg-accent group-hover:text-black transition-all duration-300"
+                whileHover={{ rotate: [0, -8, 8, 0] }}
+                transition={{ duration: 0.4 }}
               >
-                Learn More →
-              </a>
-            </motion.div>
+                <service.icon size={22} />
+              </motion.div>
+
+              {/* Title */}
+              <h3 className="text-base font-bold text-foreground font-poppins">
+                {service.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-muted text-sm leading-relaxed flex-1">
+                {service.description}
+              </p>
+
+              {/* Link */}
+              <span className="inline-flex items-center gap-1 text-accent text-sm font-semibold group-hover:gap-2 transition-all duration-200">
+                Learn More <ArrowRight className="w-3.5 h-3.5" />
+              </span>
+            </motion.a>
           ))}
         </div>
       </div>

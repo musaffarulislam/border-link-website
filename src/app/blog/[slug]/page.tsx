@@ -2,6 +2,8 @@ import BlogContactCTA from "@/components/blogPage/BlogContactCTA";
 import BlogHero from "@/components/blogPage/BlogHero";
 import { Metadata } from "next";
 
+const BASE_URL = "https://borderlink.info";
+
 // Blog data object with SEO metadata
 const blogs: Record<
   string,
@@ -9,6 +11,7 @@ const blogs: Record<
     title: string;
     subtitle: string;
     content: string[];
+    datePublished: string;
     meta: {
       title: string;
       description: string;
@@ -20,6 +23,7 @@ const blogs: Record<
     title: "How to Clear Customs at the Hatta Border",
     subtitle:
       "Step-by-step guide to smooth customs clearance at Hatta for your imports and exports.",
+    datePublished: "2024-11-01",
     content: [
       "Clearing customs at the Hatta border requires careful preparation. Businesses and individuals need to ensure all documents are accurate and complete before submission.",
       "The first step is to gather all required paperwork, including commercial invoices, packing lists, certificates of origin, and any specialized permits for restricted goods.",
@@ -44,6 +48,7 @@ const blogs: Record<
     title: "Dubai Municipality Approval Guide",
     subtitle:
       "Complete guide to obtain approvals for your goods and products in Dubai.",
+    datePublished: "2024-11-15",
     content: [
       "Dubai Municipality approvals are required for importing food, electronics, cosmetics, and other regulated products.",
       "Businesses must register their company and product with the Dubai Municipality portal. Accurate details ensure smooth processing and avoid delays.",
@@ -68,6 +73,7 @@ const blogs: Record<
     title: "Common Mistakes in Customs Documentation",
     subtitle:
       "Avoid these common errors to ensure faster clearance and compliance.",
+    datePublished: "2024-12-01",
     content: [
       "Customs documentation mistakes are a major cause of delays in Dubai and UAE ports.",
       "Common errors include incomplete invoices, missing packing lists, and wrong HS codes.",
@@ -90,44 +96,91 @@ const blogs: Record<
   },
 };
 
-// ✅ Fixed metadata generation for Next.js 15
-export async function generateMetadata({ 
-  params 
-}: { 
-  params: Promise<{ slug: string }> 
+// Pre-render all blog posts at build time
+export async function generateStaticParams() {
+  return Object.keys(blogs).map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params; // Await the params Promise
+  const { slug } = await params;
   const blog = blogs[slug];
-  
+
   if (!blog) {
     return {
       title: "Blog Not Found | Border Link",
       description: "The requested blog was not found.",
     };
   }
-  
+
   return {
     title: blog.meta.title,
     description: blog.meta.description,
     keywords: blog.meta.keywords.join(", "),
+    alternates: {
+      canonical: `${BASE_URL}/blog/${slug}`,
+    },
+    openGraph: {
+      title: blog.meta.title,
+      description: blog.meta.description,
+      url: `${BASE_URL}/blog/${slug}`,
+      type: "article",
+      publishedTime: blog.datePublished,
+      siteName: "Border Link Customs Delivery",
+    },
   };
 }
 
-// ✅ Fixed page component for Next.js 15
-export default async function BlogPage({ 
-  params 
-}: { 
-  params: Promise<{ slug: string }> 
+export default async function BlogPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
 }) {
-  const { slug } = await params; // Await the params Promise
+  const { slug } = await params;
   const blog = blogs[slug];
 
   if (!blog) {
     return <p className="text-center text-white py-20">Blog not found.</p>;
   }
 
+  // Article JSON-LD — enables Google Article rich results
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: blog.meta.title,
+    description: blog.meta.description,
+    url: `${BASE_URL}/blog/${slug}`,
+    datePublished: blog.datePublished,
+    dateModified: blog.datePublished,
+    author: {
+      "@type": "Organization",
+      name: "Border Link Cargo & Customs Broker LLC",
+      url: BASE_URL,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Border Link Cargo & Customs Broker LLC",
+      logo: {
+        "@type": "ImageObject",
+        url: `${BASE_URL}/icon.png`,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${BASE_URL}/blog/${slug}`,
+    },
+    keywords: blog.meta.keywords.join(", "),
+  };
+
   return (
     <div className="space-y-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <BlogHero title={blog.title} subtitle={blog.subtitle} />
       <section className="max-w-5xl mx-auto px-4 md:px-8 space-y-6">
         {blog.content.map((paragraph, idx) => (
