@@ -21,13 +21,13 @@ const itemVariants = {
 
 const phoneNumbers = [
   { number: "+971 56 771 1884", href: "tel:+97156771884" },
-  { number: "+971 56 345 4684", href: "tel:+97156345 4684" },
-  { number: "+971 52 623 2117", href: "tel:+97152623 2117" },
+  { number: "+971 56 345 4684", href: "tel:+971563454684" },
+  { number: "+971 52 623 2117", href: "tel:+971526232117" },
 ];
 
 const whatsappNumbers = [
   { number: "+971 56 345 4684", href: "https://wa.me/971563454684" },
-  { number: "+971 52 623 2117", href: "https://wa.me/97152623 2117" },
+  { number: "+971 52 623 2117", href: "https://wa.me/971526232117" },
 ];
 
 export default function ContactInfo() {
