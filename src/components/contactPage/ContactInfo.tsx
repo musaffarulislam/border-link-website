@@ -1,6 +1,6 @@
 "use client";
 
-import { Phone, MessageCircle, Mail, MapPin } from "lucide-react";
+import { Phone, MessageCircle, Mail, MapPin, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import QRImage from "@/assets/QR-code.png";
 import Image from "next/image";
@@ -8,19 +8,16 @@ import { motion } from "framer-motion";
 
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12 },
-  },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.45 } },
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 const phoneNumbers = [
-  { number: "+971 56 771 1884", href: "tel:+97156771884" },
+  { number: "+971 56 677 1884", href: "tel:+971566771884" },
   { number: "+971 56 345 4684", href: "tel:+971563454684" },
   { number: "+971 52 623 2117", href: "tel:+971526232117" },
 ];
@@ -35,146 +32,165 @@ const emailAddresses = [
   { address: "service@borderlink.info", href: "mailto:service@borderlink.info" },
 ];
 
+function ContactCard({
+  icon: Icon,
+  label,
+  iconColor,
+  children,
+}: {
+  icon: React.ElementType;
+  label: string;
+  iconColor: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <motion.div
+      variants={itemVariants}
+      className="group relative bg-zinc-900 border border-zinc-800 hover:border-amber-500/60 rounded-2xl p-6 shadow-lg hover:shadow-amber-500/10 hover:shadow-xl transition-all duration-300"
+    >
+      <div className="flex items-center gap-4 mb-5">
+        <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${iconColor}`}>
+          <Icon className="w-6 h-6 text-white" />
+        </div>
+        <div>
+          <h3 className="text-base font-bold text-white font-poppins">{label}</h3>
+          <p className="text-xs text-zinc-500 font-inter">Click to connect</p>
+        </div>
+      </div>
+      <div className="flex flex-col gap-2">{children}</div>
+    </motion.div>
+  );
+}
+
+function ActionLink({
+  href,
+  label,
+  external,
+}: {
+  href: string;
+  label: string;
+  external?: boolean;
+}) {
+  return (
+    <Link
+      href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
+      className="group/link flex items-center justify-between gap-2 bg-zinc-800 hover:bg-amber-500 text-zinc-300 hover:text-black font-medium px-4 py-3 rounded-xl transition-all duration-200 text-sm"
+    >
+      <span>{label}</span>
+      <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover/link:opacity-100 -translate-x-1 group-hover/link:translate-x-0 transition-all duration-200" />
+    </Link>
+  );
+}
+
 export default function ContactInfo() {
   return (
-    <section className="py-16 bg-background">
+    <section className="py-20 bg-zinc-950">
       <div className="container mx-auto px-4 md:px-8">
+
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true, amount: 0 }}
+          className="text-center mb-14"
         >
-          <h2 className="text-3xl md:text-4xl font-bold font-poppins text-center mb-4">
+          <span className="inline-block text-xs font-semibold tracking-widest text-amber-500 uppercase mb-3 font-inter">
+            Get In Touch
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold font-poppins text-white mb-3">
             Contact Details
           </h2>
-          <p className="text-gray-400 text-center mb-12 font-inter">
-            Reach us through any of the following methods for fast assistance.
+          <p className="text-zinc-400 font-inter max-w-md mx-auto text-sm">
+            Reach us through any of the following channels for fast assistance.
           </p>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-5"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0 }}
         >
-          {/* Phone Numbers */}
-          <motion.div
-            variants={itemVariants}
-            className="p-6 rounded-2xl bg-amber-500 shadow-md"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-black/15 flex items-center justify-center flex-shrink-0">
-                <Phone className="w-5 h-5 text-black" />
-              </div>
-              <h3 className="text-lg font-bold text-black font-poppins">Phone</h3>
-            </div>
-            <div className="flex flex-col gap-2">
-              {phoneNumbers.map((item, i) => (
-                <Link
-                  key={i}
-                  href={item.href}
-                  className="inline-flex items-center gap-2 bg-black/10 hover:bg-black/20 text-black font-semibold px-4 py-2.5 rounded-xl transition-colors text-sm"
-                >
-                  <Phone className="w-4 h-4 flex-shrink-0" />
-                  {item.number}
-                </Link>
-              ))}
-            </div>
-          </motion.div>
+          {/* Phone */}
+          <ContactCard icon={Phone} label="Call Us" iconColor="bg-gradient-to-br from-amber-400 to-amber-600">
+            {phoneNumbers.map((item, i) => (
+              <ActionLink key={i} href={item.href} label={item.number} />
+            ))}
+          </ContactCard>
 
-          {/* WhatsApp Numbers */}
-          <motion.div
-            variants={itemVariants}
-            className="p-6 rounded-2xl bg-amber-500 shadow-md"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-black/15 flex items-center justify-center flex-shrink-0">
-                <MessageCircle className="w-5 h-5 text-black" />
-              </div>
-              <h3 className="text-lg font-bold text-black font-poppins">WhatsApp</h3>
-            </div>
-            <div className="flex flex-col gap-2">
-              {whatsappNumbers.map((item, i) => (
-                <Link
-                  key={i}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-black/10 hover:bg-black/20 text-black font-semibold px-4 py-2.5 rounded-xl transition-colors text-sm"
-                >
-                  <MessageCircle className="w-4 h-4 flex-shrink-0" />
-                  {item.number}
-                </Link>
-              ))}
-            </div>
-          </motion.div>
+          {/* WhatsApp */}
+          <ContactCard icon={MessageCircle} label="WhatsApp" iconColor="bg-gradient-to-br from-green-500 to-emerald-700">
+            {whatsappNumbers.map((item, i) => (
+              <ActionLink key={i} href={item.href} label={item.number} external />
+            ))}
+          </ContactCard>
 
           {/* Email */}
-          <motion.div
-            variants={itemVariants}
-            className="p-6 rounded-2xl bg-amber-500 shadow-md"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-black/15 flex items-center justify-center flex-shrink-0">
-                <Mail className="w-5 h-5 text-black" />
-              </div>
-              <h3 className="text-lg font-bold text-black font-poppins">Email</h3>
-            </div>
-            <div className="flex flex-col gap-2">
-              {emailAddresses.map((item, i) => (
-                <Link
-                  key={i}
-                  href={item.href}
-                  className="inline-flex items-center gap-2 bg-black/10 hover:bg-black/20 text-black font-semibold px-4 py-2.5 rounded-xl transition-colors text-sm"
-                >
-                  <Mail className="w-4 h-4 flex-shrink-0" />
-                  {item.address}
-                </Link>
-              ))}
-            </div>
-          </motion.div>
+          <ContactCard icon={Mail} label="Email Us" iconColor="bg-gradient-to-br from-blue-500 to-indigo-700">
+            {emailAddresses.map((item, i) => (
+              <ActionLink key={i} href={item.href} label={item.address} />
+            ))}
+          </ContactCard>
 
           {/* Address */}
-          <motion.div variants={itemVariants}>
+          <motion.div
+            variants={itemVariants}
+            className="group bg-zinc-900 border border-zinc-800 hover:border-amber-500/60 rounded-2xl p-6 shadow-lg hover:shadow-amber-500/10 hover:shadow-xl transition-all duration-300"
+          >
+            <div className="flex items-center gap-4 mb-5">
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 bg-gradient-to-br from-rose-500 to-red-700">
+                <MapPin className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-white font-poppins">Our Location</h3>
+                <p className="text-xs text-zinc-500 font-inter">Hatta, Dubai, UAE</p>
+              </div>
+            </div>
+            <div className="bg-zinc-800 rounded-xl p-4 mb-3">
+              <p className="text-zinc-300 text-sm font-inter leading-relaxed">
+                Shop no.29, Hatta Souq &amp; Guest House,<br />
+                Hatta, Dubai, UAE
+              </p>
+            </div>
             <Link
               href="https://www.google.com/maps/place/Hatta"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 p-6 rounded-2xl bg-amber-500 shadow-md hover:bg-amber-400 transition-colors h-full"
+              className="flex items-center justify-between gap-2 bg-zinc-800 hover:bg-amber-500 text-zinc-300 hover:text-black font-medium px-4 py-3 rounded-xl transition-all duration-200 text-sm"
             >
-              <div className="w-10 h-10 rounded-full bg-black/15 flex items-center justify-center flex-shrink-0">
-                <MapPin className="w-5 h-5 text-black" />
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-black font-poppins mb-1">Address</h3>
-                <p className="text-black/80 font-semibold text-sm">
-                  Shop no.29 Hatta Souq and Guest House,<br />Hatta, Dubai, UAE
-                </p>
-              </div>
+              <span>Get Directions</span>
+              <ArrowUpRight className="w-3.5 h-3.5 flex-shrink-0" />
             </Link>
           </motion.div>
 
           {/* QR Code */}
           <motion.div
-            className="col-span-1 md:col-span-2 flex gap-8 items-center justify-center p-6 rounded-2xl bg-amber-500 shadow-md"
             variants={itemVariants}
+            className="col-span-1 md:col-span-2 bg-zinc-900 border border-zinc-800 hover:border-amber-500/60 rounded-2xl p-8 shadow-lg transition-all duration-300 flex flex-col items-center text-center gap-5"
           >
-            <Image
-              src={QRImage.src}
-              alt="Border Link QR Code"
-              className="w-36 h-36 rounded-xl"
-              width={144}
-              height={144}
-            />
+            <div className="relative">
+              <div className="absolute inset-0 bg-amber-500/20 rounded-2xl blur-xl" />
+              <Image
+                src={QRImage.src}
+                alt="Border Link QR Code"
+                className="relative w-36 h-36 rounded-xl border border-zinc-700"
+                width={144}
+                height={144}
+              />
+            </div>
             <div>
-              <h3 className="text-lg font-bold text-black font-poppins mb-2">Scan QR Code</h3>
-              <p className="text-black/80 font-medium text-sm max-w-xs">
-                Scan to save our contact details or visit our website quickly.
+              <h3 className="text-lg font-bold text-white font-poppins mb-2">Scan QR Code</h3>
+              <p className="text-zinc-400 font-inter text-sm max-w-xs mx-auto leading-relaxed">
+                Scan to instantly save our contact details or visit our website. Quick and hassle-free.
               </p>
+              <div className="mt-4 flex items-center justify-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                <span className="text-xs text-amber-500 font-semibold font-inter">Available 24/7</span>
+              </div>
             </div>
           </motion.div>
         </motion.div>

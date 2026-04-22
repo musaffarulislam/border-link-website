@@ -1,7 +1,6 @@
 import ContactHero from "@/components/contactPage/ContactHero";
 import ContactInfo from "@/components/contactPage/ContactInfo";
 import ContactMap from "@/components/contactPage/ContactMap";
-import OfficeHours from "@/components/contactPage/OfficeHours";
 import ContactSection from "@/components/homePage/ContactCTA";
 import React from "react";
 
@@ -25,10 +24,9 @@ const page = () => {
   return (
     <main className="space-y-16">
       <ContactHero />
-      <ContactSection />
-      <ContactMap />
       <ContactInfo />
-      <OfficeHours />
+      <ContactMap />
+      <ContactSection />
     </main>
   );
 };
