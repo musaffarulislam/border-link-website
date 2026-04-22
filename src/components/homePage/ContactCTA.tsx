@@ -28,7 +28,7 @@ const contactDetails = [
     icon: Mail,
     label: "Email",
     lines: [
-      { text: "Borderlink.hatta@gmail.com", href: "mailto:Borderlink.hatta@gmail.com" },
+      { text: "borderlink.hatta@gmail.com", href: "mailto:borderlink.hatta@gmail.com" },
       { text: "service@borderlink.info", href: "mailto:service@borderlink.info" },
     ],
   },
