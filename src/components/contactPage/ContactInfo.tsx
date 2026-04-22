@@ -30,6 +30,11 @@ const whatsappNumbers = [
   { number: "+971 52 623 2117", href: "https://wa.me/971526232117" },
 ];
 
+const emailAddresses = [
+  { address: "borderlink.hatta@gmail.com", href: "mailto:borderlink.hatta@gmail.com" },
+  { address: "service@borderlink.info", href: "mailto:service@borderlink.info" },
+];
+
 export default function ContactInfo() {
   return (
     <section className="py-16 bg-background">
@@ -109,20 +114,28 @@ export default function ContactInfo() {
           </motion.div>
 
           {/* Email */}
-          <motion.div variants={itemVariants}>
-            <Link
-              href="mailto:borderlink.hatta@gmail.com"
-              className="flex items-center gap-4 p-6 rounded-2xl bg-amber-500 shadow-md hover:bg-amber-400 transition-colors h-full"
-            >
+          <motion.div
+            variants={itemVariants}
+            className="p-6 rounded-2xl bg-amber-500 shadow-md"
+          >
+            <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-full bg-black/15 flex items-center justify-center flex-shrink-0">
                 <Mail className="w-5 h-5 text-black" />
               </div>
-              <div>
-                <h3 className="text-lg font-bold text-black font-poppins mb-1">Email</h3>
-                <p className="text-black/80 font-semibold text-sm">borderlink.hatta@gmail.com</p>
-                <p className="text-black/80 font-semibold text-sm">service@borderlink.info</p>
-              </div>
-            </Link>
+              <h3 className="text-lg font-bold text-black font-poppins">Email</h3>
+            </div>
+            <div className="flex flex-col gap-2">
+              {emailAddresses.map((item, i) => (
+                <Link
+                  key={i}
+                  href={item.href}
+                  className="inline-flex items-center gap-2 bg-black/10 hover:bg-black/20 text-black font-semibold px-4 py-2.5 rounded-xl transition-colors text-sm"
+                >
+                  <Mail className="w-4 h-4 flex-shrink-0" />
+                  {item.address}
+                </Link>
+              ))}
+            </div>
           </motion.div>
 
           {/* Address */}
