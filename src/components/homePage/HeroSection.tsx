@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import BackgroundImage1 from "@/assets/background-image1.jpg";
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Download } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -115,26 +115,40 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <motion.div
-            className="mt-8 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4"
+            className="mt-8 flex flex-col items-center gap-3"
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.65 }}
           >
+            {/* Row 1 */}
+            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 w-64 sm:w-auto">
+              <motion.a
+                href="/contact"
+                className="w-full sm:w-auto text-center px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-xl bg-accent text-black font-bold text-sm shadow-lg shadow-accent/25 hover:bg-secondary transition-all duration-200"
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                Get a Free Quote
+              </motion.a>
+              <motion.a
+                href="https://wa.me/971566771884"
+                className="w-full sm:w-auto text-center px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-xl bg-green-500/20 text-green-400 font-bold text-sm border border-green-500/40 hover:bg-green-500/30 transition-all duration-200"
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                WhatsApp Us
+              </motion.a>
+            </div>
+            {/* Row 2 */}
             <motion.a
-              href="/contact"
-              className="px-8 py-3.5 rounded-xl bg-accent text-black font-bold text-sm sm:text-base shadow-lg shadow-accent/25 hover:bg-secondary transition-all duration-200"
+              href="/brochure.pdf"
+              download="Border Link Company Profile.pdf"
+              className="w-64 sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-xl bg-transparent text-white font-bold text-sm border border-white/30 hover:bg-white/10 transition-all duration-200"
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.97 }}
             >
-              Get a Free Quote
-            </motion.a>
-            <motion.a
-              href="https://wa.me/971566771884"
-              className="px-8 py-3.5 rounded-xl bg-white/10 text-white font-bold text-sm sm:text-base border border-white/30 hover:bg-white/20 transition-all duration-200"
-              whileHover={{ scale: 1.04, y: -2 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              WhatsApp Us
+              <Download className="w-4 h-4" />
+              Download Brochure
             </motion.a>
           </motion.div>
         </div>
