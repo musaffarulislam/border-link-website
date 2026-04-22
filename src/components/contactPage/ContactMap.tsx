@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function ContactMap() {
   return (
-    <section className="py-20 bg-black">
+    <section className="py-20 bg-[#000000]">
       <div className="container mx-auto px-4 md:px-8">
 
         {/* Heading */}
