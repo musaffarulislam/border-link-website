@@ -111,7 +111,7 @@ export default function ContactInfo() {
           {/* Email */}
           <motion.div variants={itemVariants}>
             <Link
-              href="mailto:service@borderlink.info"
+              href="mailto:Borderlink.hatta@gmail.com"
               className="flex items-center gap-4 p-6 rounded-2xl bg-amber-500 shadow-md hover:bg-amber-400 transition-colors h-full"
             >
               <div className="w-10 h-10 rounded-full bg-black/15 flex items-center justify-center flex-shrink-0">
@@ -119,6 +119,7 @@ export default function ContactInfo() {
               </div>
               <div>
                 <h3 className="text-lg font-bold text-black font-poppins mb-1">Email</h3>
+                <p className="text-black/80 font-semibold text-sm">Borderlink.hatta@gmail.com</p>
                 <p className="text-black/80 font-semibold text-sm">service@borderlink.info</p>
               </div>
             </Link>
