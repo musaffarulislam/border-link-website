@@ -24,9 +24,9 @@ const page = () => {
   return (
     <main className="space-y-16">
       <ContactHero />
-      <ContactInfo />
-      <ContactMap />
       <ContactSection />
+      <ContactMap />
+      <ContactInfo />
     </main>
   );
 };
