@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function ContactMap() {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-black">
       <div className="container mx-auto px-4 md:px-8">
 
         {/* Heading */}
@@ -92,7 +92,7 @@ export default function ContactMap() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
             viewport={{ once: true, amount: 0 }}
-            className="lg:col-span-2 bg-white/5 border border-white/10 rounded-2xl overflow-hidden shadow-xl"
+            className="lg:col-span-2 bg-black border border-white/10 rounded-2xl overflow-hidden shadow-xl"
             style={{ minHeight: "400px" }}
           >
             <iframe
