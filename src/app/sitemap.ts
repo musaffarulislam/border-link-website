@@ -77,6 +77,48 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.65,
     },
     {
+      url: `${baseUrl}/blog/freight-forwarding-hatta-border`,
+      lastModified: new Date("2025-01-10"),
+      changeFrequency: "monthly",
+      priority: 0.65,
+    },
+    {
+      url: `${baseUrl}/blog/cargo-clearance-uae-borders`,
+      lastModified: new Date("2025-01-20"),
+      changeFrequency: "monthly",
+      priority: 0.65,
+    },
+    {
+      url: `${baseUrl}/blog/uae-import-export-regulations-2025`,
+      lastModified: new Date("2025-02-01"),
+      changeFrequency: "monthly",
+      priority: 0.65,
+    },
+    {
+      url: `${baseUrl}/blog/customs-duties-uae-guide`,
+      lastModified: new Date("2025-02-15"),
+      changeFrequency: "monthly",
+      priority: 0.65,
+    },
+    {
+      url: `${baseUrl}/blog/hatta-border-crossing-guide`,
+      lastModified: new Date("2025-03-01"),
+      changeFrequency: "monthly",
+      priority: 0.65,
+    },
+    {
+      url: `${baseUrl}/blog/document-requirements-uae-customs`,
+      lastModified: new Date("2025-03-15"),
+      changeFrequency: "monthly",
+      priority: 0.65,
+    },
+    {
+      url: `${baseUrl}/blog/choosing-customs-broker-dubai`,
+      lastModified: new Date("2025-04-01"),
+      changeFrequency: "monthly",
+      priority: 0.65,
+    },
+    {
       url: `${baseUrl}/faq`,
       lastModified: new Date(),
       changeFrequency: "monthly",
