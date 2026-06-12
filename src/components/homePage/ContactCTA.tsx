@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import ContactImg from "@/assets/background-image3.jpg";
+import ContactImg from "@/assets/background-image3.webp";
 import ContactForm from "./ContactForm";
 import { motion } from "framer-motion";
 import { Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
@@ -81,8 +81,10 @@ export default function ContactSection() {
             <Image
               src={ContactImg}
               alt="Border Link Customs Clearance Office"
-              fill
-              className="object-cover"
+              width={1920}
+              height={1080}
+              sizes="100vw"
+              className="absolute h-full w-full object-cover"
             />
 
             {/* Gradient overlay — darker for better text contrast */}

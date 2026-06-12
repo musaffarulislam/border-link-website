@@ -2,7 +2,7 @@
 
 // components/OurStory.tsx
 import Image from "next/image";
-import StoryImage from "@/assets/background-image5.jpg"; // Replace with your image path
+import StoryImage from "@/assets/background-image5.webp"; // Replace with your image path
 import { motion } from "framer-motion";
 
 export default function OurStory() {
@@ -41,8 +41,10 @@ export default function OurStory() {
           <Image
             src={StoryImage}
             alt="Border Link Operations"
-            fill
-            className="object-cover rounded-lg shadow-lg"
+            width={1200}
+            height={800}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="h-full w-full object-cover rounded-lg shadow-lg"
             priority
           />
         </motion.div>

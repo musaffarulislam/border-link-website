@@ -36,9 +36,9 @@ export default function OfficeHours() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true, amount: 0 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold font-poppins text-center mb-4">
+          <h3 className="text-3xl md:text-4xl font-bold font-poppins text-center mb-4">
             Office Hours
-          </h2>
+          </h3>
           <p className="text-gray-300 text-center mb-12 font-inter">
             We are available to assist you during the following times:
           </p>

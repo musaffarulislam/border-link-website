@@ -87,9 +87,9 @@ function Benefits() {
 function CTA() {
   return (
     <section className="py-16 bg-primary rounded-lg mx-4 md:mx-8 text-center">
-      <h2 className="text-3xl font-bold mb-4 text-white font-poppins">
+      <h3 className="text-3xl font-bold mb-4 text-white font-poppins">
         Get Hassle-Free Customs Clearance Today
-      </h2>
+      </h3>
       <p className="text-gray-200 mb-6 font-inter">
         Contact Border Link for fast, reliable, and compliant customs clearance
         solutions across Dubai and UAE borders.

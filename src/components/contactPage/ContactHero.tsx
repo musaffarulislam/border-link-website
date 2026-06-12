@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import HeroBg from "@/assets/background-image8.jpg";
+import HeroBg from "@/assets/background-image8.webp";
 import { motion } from "framer-motion";
 
 export default function ContactHero() {
@@ -13,8 +13,10 @@ export default function ContactHero() {
         <Image
           src={HeroBg}
           alt="Contact Border Link for Customs Clearance"
-          fill
-          className="object-cover"
+          width={1920}
+          height={1280}
+          sizes="100vw"
+          className="h-full w-full object-cover"
           priority
         />
       </div>

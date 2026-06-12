@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import AboutImage from "@/assets/background-image2.jpg";
+import AboutImage from "@/assets/background-image2.webp";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
@@ -60,7 +60,7 @@ export default function AboutSection() {
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
           >
-            Learn More <ArrowRight className="w-4 h-4" />
+            About Border Link <ArrowRight className="w-4 h-4" />
           </motion.a>
         </motion.div>
 
@@ -75,8 +75,10 @@ export default function AboutSection() {
           <Image
             src={AboutImage}
             alt="Border Link Team at Hatta Border Customs"
-            fill
-            className="object-cover"
+            width={1920}
+            height={1080}
+            sizes="100vw"
+            className="h-full w-full object-cover"
             priority
           />
           {/* Subtle overlay */}

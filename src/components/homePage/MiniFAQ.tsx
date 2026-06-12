@@ -37,7 +37,7 @@ export default function MiniFAQ() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-3">
-            Frequently Asked Questions
+            Quick Customs FAQs
           </h2>
           <p className="text-muted text-sm">
             Quick answers to the most common customs queries.

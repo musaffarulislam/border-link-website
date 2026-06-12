@@ -10,7 +10,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About Border Link – Dubai's Trusted Customs Broker",
   description:
-    "Learn about Border Link Cargo & Customs Broker LLC – our mission, expert team, and years of experience simplifying customs clearance and logistics at Hatta and all UAE borders.",
+    "Learn about Border Link Cargo & Customs Broker LLC – our mission, expert team, and years of experience at Hatta border and across UAE.",
   alternates: { canonical: "https://borderlink.info/about" },
   keywords: [
     "about Border Link Dubai",

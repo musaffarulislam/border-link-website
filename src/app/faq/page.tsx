@@ -114,6 +114,22 @@ const page = () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <FAQHero />
+      <section className="max-w-4xl mx-auto px-6 py-12 text-gray-200 font-inter text-base md:text-lg leading-relaxed">
+        <h2 className="text-2xl md:text-3xl font-poppins font-bold text-white mb-4">
+          Common Questions About Customs & Logistics in the UAE
+        </h2>
+        <p className="mb-4">
+          Here you will find answers to the questions we hear most often from
+          importers, exporters, and freight forwarders. Topics include
+          customs clearance at the Hatta border, required documents, duties
+          and taxes, and our 24/7 E-Services platform.
+        </p>
+        <p>
+          Can&apos;t find what you need? Our team is one call or message
+          away. Reach out any time and we will get back to you with a clear
+          answer.
+        </p>
+      </section>
       <FAQSection />
       <FAQContactCTA />
     </main>

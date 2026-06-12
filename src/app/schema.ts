@@ -3,11 +3,11 @@ import { Metadata } from "next";
 export const siteMetadata: Metadata = {
   metadataBase: new URL("https://borderlink.info"),
   title: {
-    default: "Expert Customs Clearance & Logistics in Dubai | Border Link",
+    default: "Customs Clearance & Logistics Dubai | Border Link",
     template: "%s | Border Link",
   },
   description:
-    "Border Link Cargo & Customs Broker LLC – Fast, reliable customs clearance & logistics services at Hatta-Dubai border and all UAE ports.",
+    "Border Link Cargo & Customs Broker LLC – fast, reliable customs clearance and logistics at Hatta-Dubai border and all UAE ports.",
   keywords: [
     "customs clearance Dubai",
     "customs broker Dubai",
@@ -32,9 +32,9 @@ export const siteMetadata: Metadata = {
     canonical: "https://borderlink.info",
   },
   openGraph: {
-    title: "Expert Customs Clearance & Logistics in Dubai | Border Link",
+    title: "Customs Clearance & Logistics Dubai | Border Link",
     description:
-      "Expert customs clearance and logistics solutions in Dubai and across the UAE. Simplifies cross-border trade.",
+      "Expert customs clearance and logistics in Dubai and across the UAE. We simplify cross-border trade.",
     url: "https://borderlink.info",
     siteName: "Border Link Customs Delivery",
     locale: "en_US",
@@ -44,9 +44,9 @@ export const siteMetadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Expert Customs Clearance & Logistics in Dubai | Border Link",
+    title: "Customs Clearance & Logistics Dubai | Border Link",
     description:
-      "Fast & reliable customs clearance in Dubai. We handle your logistics so you don't have to.",
+      "Fast, reliable customs clearance in Dubai. We handle your logistics so you don't have to.",
     // TODO: Add same image here once created
     images: ["/og-image.jpg"],
   },

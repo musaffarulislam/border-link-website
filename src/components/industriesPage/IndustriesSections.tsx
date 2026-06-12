@@ -3,10 +3,10 @@
 
 import { CheckCircle, Car, Wrench, Package } from "lucide-react";
 import Image from "next/image";
-import FoodImg from "@/assets/background-image8.jpg"; // replace with real images
-import CarImg from "@/assets/background-image8.jpg";
-import EquipmentImg from "@/assets/background-image9.jpg";
-import PersonalImg from "@/assets/background-image5.jpg";
+import FoodImg from "@/assets/background-image8.webp"; // replace with real images
+import CarImg from "@/assets/background-image8.webp";
+import EquipmentImg from "@/assets/background-image9.webp";
+import PersonalImg from "@/assets/background-image5.webp";
 import { motion } from "framer-motion";
 
 export default function IndustriesSections() {
@@ -45,8 +45,10 @@ function FoodSection() {
         <Image
           src={FoodImg}
           alt="Food & Perishables"
-          fill
-          className="object-cover"
+          width={1200}
+          height={800}
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="h-full w-full object-cover"
         />
       </motion.div>
 
@@ -124,8 +126,10 @@ function AutomotiveSection() {
           <Image
             src={CarImg}
             alt="Automotive Clearance"
-            fill
-            className="object-cover"
+            width={1200}
+            height={800}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="h-full w-full object-cover"
           />
         </motion.div>
       </div>
@@ -156,8 +160,10 @@ function EquipmentSection() {
         <Image
           src={EquipmentImg}
           alt="Industrial Equipment"
-          fill
-          className="object-cover"
+          width={1200}
+          height={800}
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="h-full w-full object-cover"
         />
       </motion.div>
       <motion.div
@@ -233,8 +239,10 @@ function PersonalSection() {
         <Image
           src={PersonalImg}
           alt="Personal Goods"
-          fill
-          className="object-cover"
+          width={1200}
+          height={800}
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="h-full w-full object-cover"
         />
       </motion.div>
     </section>

@@ -88,9 +88,9 @@ function Benefits() {
 function CTA() {
   return (
     <section className="py-16 bg-primary rounded-lg mx-4 md:mx-8 text-center">
-      <h2 className="text-3xl font-bold mb-4 text-white font-poppins">
+      <h3 className="text-3xl font-bold mb-4 text-white font-poppins">
         Experience Hassle-Free Online Customs Management
-      </h2>
+      </h3>
       <p className="text-gray-200 mb-6 font-inter">
         Get started with our E-Services platform and simplify your customs
         clearance process today.

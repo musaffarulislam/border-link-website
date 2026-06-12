@@ -1,8 +1,8 @@
 // // components/TeamExpertise.tsx
 // import Image from "next/image";
-// import Mohammed from "@/assets/background-image6.jpg"; // replace with real images
-// import Sarah from "@/assets/background-image8.jpg";
-// import Ahmed from "@/assets/background-image4.jpg";
+// import Mohammed from "@/assets/background-image6.webp"; // replace with real images
+// import Sarah from "@/assets/background-image8.webp";
+// import Ahmed from "@/assets/background-image4.webp";
 // import { User } from "lucide-react";
 
 // const teamMembers = [

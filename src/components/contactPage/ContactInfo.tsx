@@ -2,7 +2,7 @@
 
 import { Phone, MessageCircle, Mail, MapPin, ArrowUpRight, QrCode } from "lucide-react";
 import Link from "next/link";
-import QRImage from "@/assets/QR-code.png";
+import QRImage from "@/assets/QR-code.webp";
 import Image from "next/image";
 import { motion } from "framer-motion";
 

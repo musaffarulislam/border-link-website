@@ -86,7 +86,7 @@ export default function ServicesOverview() {
 
               {/* Link */}
               <span className="inline-flex items-center gap-1 text-accent text-sm font-semibold group-hover:gap-2 transition-all duration-200">
-                Learn More <ArrowRight className="w-3.5 h-3.5" />
+                Explore {service.title} <ArrowRight className="w-3.5 h-3.5" />
               </span>
             </motion.a>
           ))}

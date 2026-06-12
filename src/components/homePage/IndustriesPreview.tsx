@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import FoodImg from "@/assets/background-image6.jpg";
-import AutoImg from "@/assets/background-image8.jpg";
-import EquipmentImg from "@/assets/background-image5.jpg";
-import PersonalImg from "@/assets/background-image9.jpg";
+import FoodImg from "@/assets/background-image6.webp";
+import AutoImg from "@/assets/background-image8.webp";
+import EquipmentImg from "@/assets/background-image5.webp";
+import PersonalImg from "@/assets/background-image9.webp";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
@@ -72,8 +72,10 @@ export default function IndustriesPreview() {
               <Image
                 src={industry.image}
                 alt={industry.title}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                width={800}
+                height={600}
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
 
               {/* Gradient overlay */}

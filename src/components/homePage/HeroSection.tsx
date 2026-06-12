@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import BackgroundImage1 from "@/assets/background-image1.jpg";
+import BackgroundImage1 from "@/assets/background-image1.webp";
 import { motion } from "framer-motion";
 import { ChevronDown, Download } from "lucide-react";
 
@@ -14,9 +14,11 @@ const HeroSection = () => {
         <Image
           src={BackgroundImage1}
           alt="Dubai Customs Clearance and Logistics Services - Border Link"
-          fill
+          width={1920}
+          height={1280}
+          sizes="100vw"
           priority
-          className="object-cover"
+          className="h-full w-full object-cover"
         />
       </div>
 

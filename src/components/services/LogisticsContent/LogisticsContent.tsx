@@ -21,9 +21,9 @@ function Hero() {
   return (
     <section className="relative w-full h-[50vh] flex items-center justify-center text-center">
       <div className="px-4 md:px-8 text-white max-w-2xl">
-        <h1 className="!text-4xl font-bold mb-4 font-poppins">
+        <h2 className="!text-4xl font-bold mb-4 font-poppins">
           Logistics & Transportation Services
-        </h1>
+        </h2>
         <p className="text-lg md:text-2xl mb-6 font-inter">
           Reliable land transport, container handling, and
           temperature-controlled cargo across UAE & GCC.
@@ -104,9 +104,9 @@ function Benefits() {
 function CTA() {
   return (
     <section className="py-16 bg-primary rounded-lg mx-4 md:mx-8 text-center">
-      <h2 className="text-3xl font-bold mb-4 text-white font-poppins">
+      <h3 className="text-3xl font-bold mb-4 text-white font-poppins">
         Ready to Move Your Cargo Efficiently?
-      </h2>
+      </h3>
       <p className="text-gray-200 mb-6 font-inter">
         Contact Border Link today for reliable logistics and transportation
         solutions across UAE & GCC.

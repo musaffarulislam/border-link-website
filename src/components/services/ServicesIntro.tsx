@@ -103,7 +103,7 @@ export default function ServicesIntro() {
 
                   {/* Learn More */}
                   <div className="mt-4 text-amber-400 text-center font-medium group-hover:text-emerald-400 transition">
-                    Learn More →
+                    About {service.title} →
                   </div>
 
                   {/* Hover Overlay */}

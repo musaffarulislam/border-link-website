@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Expert Customs Clearance & Logistics in Dubai | Border Link",
+  title: "Customs Clearance & Logistics Dubai | Border Link",
   description:
-    "Border Link Cargo & Customs Broker LLC – Fast, reliable customs clearance at the Hatta–Dubai border and all UAE ports. Expert import/export, freight forwarding, product registration, and land transport services.",
+    "Fast, reliable customs clearance at Hatta–Dubai border and all UAE ports. Expert import, export, freight, and registration services.",
   alternates: { canonical: "https://borderlink.info" },
   keywords: [
     "customs clearance Dubai",
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     "cross border trade UAE",
   ],
   openGraph: {
-    title: "Expert Customs Clearance & Logistics in Dubai | Border Link",
+    title: "Customs Clearance & Logistics Dubai | Border Link",
     description:
-      "Fast, reliable customs clearance at the Hatta–Dubai border and all UAE ports. We simplify cross-border trade for businesses of every size.",
+      "Fast, reliable customs clearance at Hatta–Dubai border and all UAE ports. We simplify cross-border trade.",
     url: "https://borderlink.info",
     type: "website",
   },

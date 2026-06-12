@@ -14,27 +14,27 @@ interface ServiceData {
 
 const services: Record<string, ServiceData> = {
   "customs-clearance": {
-    title: "Customs Clearance in Dubai & UAE Borders",
+    title: "Customs Clearance Dubai & UAE Borders",
     description:
-      "Fast, reliable, and fully compliant customs clearance services for businesses and individuals across Dubai and UAE borders.",
+      "Fast, reliable customs clearance for businesses and individuals across Dubai and all UAE borders.",
     content: <CustomsContent />,
   },
   "approvals-registrations": {
     title: "Approvals & Product Registration in Dubai",
     description:
-      "Simplifying Dubai Municipality & Ministry approvals, ensuring your shipments and products comply with all UAE regulations efficiently.",
+      "Dubai Municipality and Ministry approvals, ensuring your products comply with all UAE regulations.",
     content: <ApprovalsContent />,
   },
   "logistics-transportation": {
-    title: "Logistics & Transportation Services in Dubai & GCC",
+    title: "Logistics & Transport Dubai & GCC | Border Link",
     description:
-      "Comprehensive land transport, container handling, and temperature-controlled cargo solutions across Dubai, UAE, and GCC regions.",
+      "Land transport, container handling, and temperature-controlled cargo across Dubai, UAE, and GCC regions.",
     content: <LogisticsContent />,
   },
   "e-services": {
     title: "24x7 E-Services for Customs & Logistics",
     description:
-      "Online customs support and documentation assistance for your shipments, with 24/7 tracking, approvals, and clearance management.",
+      "Online customs support and documentation help for your shipments, with 24/7 tracking and clearance.",
     content: <EServicesContent />,
   },
 };
@@ -62,6 +62,9 @@ export async function generateMetadata({
   return {
     title: service.title,
     description: service.description,
+    alternates: {
+      canonical: `https://borderlink.info/services/${serviceSlug}`,
+    },
   };
 }
 

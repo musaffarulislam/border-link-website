@@ -155,12 +155,12 @@ const blogs: Record<
       "Stay compliant with the latest UAE customs regulations for importing and exporting goods in 2025.",
     datePublished: "2025-02-01",
     content: [
-      "The UAE Federal Customs Authority regularly updates import and export regulations to align with international trade standards and national security requirements. Staying up to date is essential for any business involved in cross-border trade.",
-      "All goods entering the UAE must be declared to customs within 14 days of arrival. Late declarations can result in penalties. Electronic declaration through the UAE customs portal is mandatory for commercial shipments.",
-      "Import duties in the UAE are standardized at 5% for most goods under the GCC Common External Tariff. Exceptions include tobacco (100%), alcohol (50%), and certain food products. Free zone imports are exempt from customs duties until goods enter the mainland.",
-      "Exporters from the UAE must obtain an export declaration for all commercial shipments. Re-exports require proof of original import and customs payment. The UAE has free trade agreements with several countries offering reduced duty rates.",
-      "Restricted goods — including medicines, food items, chemicals, and electronics — require pre-approval from relevant UAE authorities such as MOHAP, Dubai Municipality, or ESMA before they can be imported or exported.",
-      "Border Link keeps up to date with all changes to UAE customs regulations. Our team ensures your shipments are always compliant, avoiding fines, delays, and rejection at the border. Contact us for a compliance consultation.",
+      "The UAE Federal Customs Authority updates import and export rules often. They aim to match world trade standards and keep the country safe. Any business that trades across borders must stay current with these changes.",
+      "All goods entering the UAE must be declared to customs within 14 days of arrival. If you declare late, you may face fines. For commercial shipments, you must file the declaration online through the UAE customs portal.",
+      "Most goods in the UAE face a 5% import duty under the GCC Common External Tariff. But tobacco is taxed at 100%, alcohol at 50%, and some food items at other rates. Goods in free zones are free from duty until they move to the mainland.",
+      "Exporters from the UAE need an export declaration for every commercial shipment. For re-exports, you must show proof of the original import and the duty you paid. The UAE also has free trade deals with many countries, which can lower your duty.",
+      "Restricted goods need approval before they cross the border. These include medicines, food, chemicals, and electronics. You must get clearance from MOHAP, Dubai Municipality, or ESMA first.",
+      "Border Link stays on top of every change to UAE customs rules. Our team makes sure your cargo follows the law. This helps you avoid fines, delays, and rejection at the border. Reach out for a free compliance check.",
     ],
     meta: {
       title: "UAE Import Export Regulations 2025 | Border Link Dubai",
@@ -182,12 +182,12 @@ const blogs: Record<
       "A clear breakdown of how customs duties work in the UAE and how to calculate them for your shipments.",
     datePublished: "2025-02-15",
     content: [
-      "Customs duties are taxes applied to goods when they cross international borders. In the UAE, customs duties are governed by the GCC Common Customs Law and administered by the Federal Customs Authority.",
-      "The standard customs duty rate in the UAE is 5% of the CIF (Cost, Insurance, and Freight) value of goods. This means you pay 5% on the total cost of the goods including shipping and insurance to the UAE port.",
-      "Some goods attract different duty rates: tobacco products are taxed at 100%, alcoholic beverages at 50%, and certain food items at 0%. GCC-origin goods with a valid certificate of origin are typically exempt from customs duties.",
-      "Free zone companies in Dubai and other UAE emirates can import goods without paying customs duties, as long as goods remain within the free zone. Duties apply when goods move from the free zone to the UAE mainland.",
-      "Excise tax also applies to certain goods in the UAE — carbonated drinks (50%), energy drinks (100%), tobacco (100%), and electronic smoking devices (100%). This is separate from customs duties.",
-      "Incorrect duty payment or under-declaration of value can result in significant penalties. Border Link's customs experts calculate duties accurately and advise on legal methods to minimize duty liability through proper tariff classification.",
+      "Customs duties are taxes on goods that cross a border. In the UAE, these duties follow the GCC Common Customs Law. The Federal Customs Authority runs the system.",
+      "The standard UAE duty is 5% of the CIF value. CIF stands for Cost, Insurance, and Freight. So you pay 5% on the goods, the shipping, and the insurance to the UAE port.",
+      "Some goods have very different rates. Tobacco is 100%. Alcohol is 50%. Some food items are 0%. Goods from other GCC states with a valid certificate of origin are usually exempt.",
+      "Free zone firms in Dubai and other emirates can bring in goods duty-free. But the goods must stay in the free zone. Once they move to the mainland, the duty applies.",
+      "Excise tax is separate from customs duty. It covers carbonated drinks (50%), energy drinks (100%), tobacco (100%), and e-smoking devices (100%).",
+      "Paying the wrong duty or hiding the real value can lead to big fines. Border Link's team calculates the right amount for you. We also show you legal ways to lower your duty through proper tariff codes.",
     ],
     meta: {
       title: "UAE Customs Duties Guide – How They Work | Border Link",
@@ -204,22 +204,22 @@ const blogs: Record<
   },
 
   "hatta-border-crossing-guide": {
-    title: "Hatta Border Crossing: Everything You Need to Know",
+    title: "Hatta Border Crossing Guide for Trade & Travel",
     subtitle:
       "Your complete guide to using the Hatta border crossing for trade, travel, and logistics between Dubai and Oman.",
     datePublished: "2025-03-01",
     content: [
-      "The Hatta border crossing is located approximately 130 km from Dubai city center, nestled in the Hajar Mountains. It serves as a key land route connecting Dubai to the Omani enclave of Madha and beyond to mainland Oman.",
-      "For commercial cargo, the Hatta border crossing is open 24 hours a day, 7 days a week. Traders and logistics companies use this route to move goods between the UAE and Oman efficiently, avoiding the congestion of larger ports.",
-      "Vehicles crossing at Hatta border must have valid UAE vehicle registration, insurance, and all cargo documentation. Commercial trucks require a customs declaration, packing list, commercial invoice, and certificate of origin.",
-      "The customs clearance process at Hatta typically takes 1–4 hours for prepared shipments. Border Link is located directly at Shop no.29, Hatta Souq & Guest House, just minutes from the border crossing, allowing us to handle your clearance quickly.",
-      "Goods commonly cleared at Hatta border include construction materials, food products, machinery, vehicles, personal effects, and general merchandise. Border Link has experience with all categories and knows the specific requirements for each.",
-      "Whether you are a first-time exporter or an established trading company, Border Link provides reliable customs clearance, freight forwarding, and logistics support at Hatta. Visit us or call for same-day assistance.",
+      "The Hatta border crossing sits about 130 km from Dubai city center. It lies in the Hajar Mountains. The crossing links Dubai to the Omani enclave of Madha and to the rest of Oman.",
+      "For cargo, the Hatta crossing is open 24 hours a day, 7 days a week. Traders and logistics firms use it to move goods between the UAE and Oman. It is much less busy than the larger ports.",
+      "Vehicles crossing at Hatta need valid UAE registration and insurance. They also need all cargo papers. Commercial trucks must carry a customs declaration, packing list, commercial invoice, and certificate of origin.",
+      "Clearance at Hatta usually takes 1 to 4 hours for ready shipments. Border Link is at Shop no.29, Hatta Souq & Guest House, only minutes from the border. So we can clear your cargo fast.",
+      "Common goods cleared at Hatta include building materials, food, machinery, vehicles, personal effects, and general cargo. Border Link handles all of these. We know the rules for each type.",
+      "New to exporting? Or a large trading firm? Border Link can help either way. We offer reliable clearance, freight forwarding, and logistics at Hatta. Drop by or call us for same-day help.",
     ],
     meta: {
-      title: "Hatta Border Crossing Guide – Trade & Logistics | Border Link",
+      title: "Hatta Border Crossing Guide – Trade & Travel",
       description:
-        "Complete guide to the Hatta border crossing for trade and logistics. Border Link provides customs clearance and freight forwarding at Hatta border.",
+        "Complete guide to the Hatta border crossing for trade and travel. Border Link handles customs clearance and freight forwarding at Hatta border.",
       keywords: [
         "Hatta border crossing",
         "Hatta border Dubai Oman",
@@ -258,22 +258,22 @@ const blogs: Record<
   },
 
   "choosing-customs-broker-dubai": {
-    title: "How to Choose the Right Customs Broker in Dubai",
+    title: "How to Choose a Customs Broker in Dubai",
     subtitle:
       "Key factors to consider when selecting a customs broker for your business in Dubai and the UAE.",
     datePublished: "2025-04-01",
     content: [
-      "Choosing the right customs broker in Dubai can make a significant difference to your supply chain efficiency and compliance. A good broker saves you time, money, and stress — a poor one can cause costly delays and penalties.",
-      "The first thing to verify is whether the customs broker is licensed by the UAE Federal Customs Authority. All customs agents operating in the UAE must be officially registered. Ask for their license number and verify it on the FCA website.",
-      "Experience matters in customs clearance. Look for a broker with proven experience in your specific product category. A broker familiar with food imports may not be the best choice for industrial machinery or hazardous materials.",
-      "Communication and responsiveness are critical. Your customs broker should be reachable when you need them, especially for time-sensitive shipments. Ask potential brokers about their response times and how they handle urgent clearances.",
-      "Transparency in pricing is essential. Get a detailed quote that includes all customs fees, handling charges, and service fees. Avoid brokers who are vague about costs — hidden fees can significantly increase your total logistics cost.",
-      "Border Link is a licensed customs broker based at Hatta, Dubai, with years of experience handling imports, exports, re-exports, and transit cargo. We offer transparent pricing, 24/7 support, and guaranteed compliance. Contact us for a free consultation.",
+      "Picking the right customs broker in Dubai can really shape your supply chain. A good broker saves you time, money, and stress. A bad one can mean costly delays and fines.",
+      "First, check that the broker is licensed. All customs agents in the UAE must be registered with the UAE Federal Customs Authority. Ask for the license number and check it on the FCA website.",
+      "Experience matters. Look for a broker who has worked with your type of goods before. A broker who handles food may not be the best fit for heavy machinery or hazardous materials.",
+      "Communication is key. Your broker should be easy to reach, especially when a shipment is urgent. Ask how fast they reply and how they handle rush jobs.",
+      "Pricing should be clear. Get a full quote that lists all fees — customs, handling, and service. Stay away from brokers who are vague about costs, since hidden fees can add up fast.",
+      "Border Link is a licensed broker based at Hatta, Dubai. We have years of experience with imports, exports, re-exports, and transit cargo. Our pricing is clear, our team is on call 24/7, and we follow every UAE rule. Reach out for a free chat about your needs.",
     ],
     meta: {
       title: "How to Choose a Customs Broker in Dubai | Border Link",
       description:
-        "Learn how to choose the right customs broker in Dubai. Border Link is a licensed, experienced customs broker at Hatta offering transparent pricing and fast clearance.",
+        "Learn how to choose the right customs broker in Dubai. Border Link is a licensed, experienced broker at Hatta with clear pricing and fast clearance.",
       keywords: [
         "customs broker Dubai",
         "how to choose customs broker UAE",

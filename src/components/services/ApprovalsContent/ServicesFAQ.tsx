@@ -36,7 +36,7 @@ export default function ServicesFAQ() {
       <div className="container mx-auto px-6 max-w-4xl">
         {/* Heading */}
         <h2 className="text-3xl md:text-4xl font-poppins font-bold text-center mb-12">
-          Frequently Asked Questions
+          Approvals & Registration FAQs
         </h2>
 
         {/* Accordion */}
