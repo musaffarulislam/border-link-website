@@ -17,6 +17,10 @@ const blogs: Record<
       description: string;
       keywords: string[];
     };
+    cta: {
+      title: string;
+      subtitle: string;
+    };
   }
 > = {
   "hatta-customs-clearance": {
@@ -43,6 +47,11 @@ const blogs: Record<
         "Border Link customs guide",
       ],
     },
+    cta: {
+      title: "Need Help Clearing Cargo at the Hatta Border?",
+      subtitle:
+        "Talk to our Hatta customs team for step-by-step support with your clearance and documentation needs.",
+    },
   },
   "dubai-municipality-approval": {
     title: "Dubai Municipality Approval Guide",
@@ -67,6 +76,11 @@ const blogs: Record<
         "customs approval guide Dubai",
         "Border Link approvals",
       ],
+    },
+    cta: {
+      title: "Looking for Help With Dubai Municipality Approvals?",
+      subtitle:
+        "Our team manages Dubai Municipality registrations and renewals so your products clear customs on the first try.",
     },
   },
   "common-customs-mistakes": {
@@ -93,6 +107,11 @@ const blogs: Record<
         "common customs errors",
       ],
     },
+    cta: {
+      title: "Want to Avoid Costly Customs Documentation Errors?",
+      subtitle:
+        "Border Link reviews every document before submission so your shipment is cleared the first time.",
+    },
   },
 
   "freight-forwarding-hatta-border": {
@@ -111,7 +130,7 @@ const blogs: Record<
     meta: {
       title: "Freight Forwarding Hatta Border Dubai | Border Link",
       description:
-        "Complete guide to freight forwarding at Hatta border. Border Link provides fast, reliable freight forwarding services at the Hatta–Dubai border crossing.",
+        "Complete guide to freight forwarding at the Hatta border. Border Link offers fast, reliable freight services across the Hatta–Dubai crossing.",
       keywords: [
         "freight forwarding Hatta border",
         "Hatta border freight forwarder",
@@ -119,6 +138,11 @@ const blogs: Record<
         "cargo forwarding Hatta UAE",
         "Hatta border crossing logistics",
       ],
+    },
+    cta: {
+      title: "Need a Freight Forwarder at the Hatta Border?",
+      subtitle:
+        "Our team coordinates trucks, paperwork, and customs so your cargo reaches its destination without delays.",
     },
   },
 
@@ -147,6 +171,11 @@ const blogs: Record<
         "customs clearance UAE borders",
       ],
     },
+    cta: {
+      title: "Struggling With Cargo Clearance at UAE Borders?",
+      subtitle:
+        "Border Link handles clearance at Hatta, Al Ghuwaifat, Wajajah - all UAE border crossings so you don't have to.",
+    },
   },
 
   "uae-import-export-regulations-2025": {
@@ -173,6 +202,11 @@ const blogs: Record<
         "export regulations Dubai",
         "UAE customs compliance",
       ],
+    },
+    cta: {
+      title: "Need a Compliance Check for UAE Trade Rules?",
+      subtitle:
+        "Border Link keeps up with every UAE customs update. Get in touch for a free compliance review of your shipments.",
     },
   },
 
@@ -201,6 +235,11 @@ const blogs: Record<
         "UAE tariff rates",
       ],
     },
+    cta: {
+      title: "Want Help Calculating Your Customs Duty?",
+      subtitle:
+        "Our team works out the right duty for your cargo and shows you legal ways to lower the cost using correct tariff codes.",
+    },
   },
 
   "hatta-border-crossing-guide": {
@@ -227,6 +266,11 @@ const blogs: Record<
         "customs clearance Hatta border crossing",
         "Hatta border logistics",
       ],
+    },
+    cta: {
+      title: "Crossing the Hatta Border With Cargo?",
+      subtitle:
+        "Visit us at Shop 29, Hatta Souq & Guest House, minutes from the border, for fast clearance and on-the-spot help.",
     },
   },
 
@@ -255,6 +299,11 @@ const blogs: Record<
         "UAE customs documentation requirements",
       ],
     },
+    cta: {
+      title: "Not Sure Which Documents You Need?",
+      subtitle:
+        "Send us your cargo details and we'll give you a complete document checklist and review every file before submission.",
+    },
   },
 
   "choosing-customs-broker-dubai": {
@@ -282,6 +331,11 @@ const blogs: Record<
         "customs agent Dubai UAE",
       ],
     },
+    cta: {
+      title: "Looking for a Trusted Customs Broker in Dubai?",
+      subtitle:
+        "Border Link is licensed, on call 24/7, and based minutes from the Hatta border. Reach out today for a free chat.",
+    },
   },
 };
 
@@ -306,7 +360,9 @@ export async function generateMetadata({
   }
 
   return {
-    title: blog.meta.title,
+    title: {
+      absolute: blog.meta.title,
+    },
     description: blog.meta.description,
     keywords: blog.meta.keywords.join(", "),
     alternates: {
@@ -378,7 +434,7 @@ export default async function BlogPage({
           </p>
         ))}
       </section>
-      <BlogContactCTA />
+      <BlogContactCTA title={blog.cta.title} subtitle={blog.cta.subtitle} />
     </div>
   );
 }

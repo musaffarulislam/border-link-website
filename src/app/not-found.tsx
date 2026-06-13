@@ -4,6 +4,12 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+export const metadata = {
+  title: "404 – Page Not Found | Border Link",
+  description: "The page you are looking for doesn't exist. Visit Border Link for customs clearance and logistics services in Dubai and the UAE.",
+  robots: { index: false, follow: false },
+};
+
 export default function NotFound() {
   return (
     <div className="relative min-h-screen bg-zinc-950 text-white selection:bg-primary selection:text-white">

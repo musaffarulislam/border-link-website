@@ -14,13 +14,13 @@ interface ServiceData {
 
 const services: Record<string, ServiceData> = {
   "customs-clearance": {
-    title: "Customs Clearance Dubai & UAE Borders",
+    title: "Customs Clearance Dubai & UAE Borders | Border Link",
     description:
       "Fast, reliable customs clearance for businesses and individuals across Dubai and all UAE borders.",
     content: <CustomsContent />,
   },
   "approvals-registrations": {
-    title: "Approvals & Product Registration in Dubai",
+    title: "Approvals & Product Registration in Dubai | Border Link",
     description:
       "Dubai Municipality and Ministry approvals, ensuring your products comply with all UAE regulations.",
     content: <ApprovalsContent />,
@@ -32,7 +32,7 @@ const services: Record<string, ServiceData> = {
     content: <LogisticsContent />,
   },
   "e-services": {
-    title: "24x7 E-Services for Customs & Logistics",
+    title: "24x7 E-Services for Customs & Logistics | Border Link",
     description:
       "Online customs support and documentation help for your shipments, with 24/7 tracking and clearance.",
     content: <EServicesContent />,
@@ -60,7 +60,9 @@ export async function generateMetadata({
   }
   
   return {
-    title: service.title,
+    title: {
+      absolute: service.title,
+    },
     description: service.description,
     alternates: {
       canonical: `https://borderlink.info/services/${serviceSlug}`,

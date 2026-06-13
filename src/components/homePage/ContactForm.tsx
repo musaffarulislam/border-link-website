@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -84,9 +84,9 @@ const ContactForm = () => {
 
   return (
     <div id="contact-form">
-      <h2 className="text-2xl md:text-3xl font-bold font-poppins mb-1">
+      <h3 className="text-2xl md:text-3xl font-bold font-poppins mb-1">
         Send Us a Message
-      </h2>
+      </h3>
       <p className="text-muted text-sm mb-6">
         Fill in the form and we&apos;ll get back to you within a few hours.
       </p>
@@ -151,6 +151,16 @@ const ContactForm = () => {
                   className={`${inputClass} [&>input]:bg-transparent [&>input]:border-none [&>input]:outline-none [&>input]:text-foreground [&>input]:pl-2`}
                   disabled={isSubmitting}
                   onChange={(value) => field.onChange(value ?? "")}
+                  flagComponent={({ country, flagUrl }) => (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={flagUrl}
+                      alt={country ? `Flag of ${country}` : "Country flag"}
+                      width={20}
+                      height={14}
+                      className="PhoneInputCountryIconImg"
+                    />
+                  )}
                   countrySelectProps={{
                     arrowComponent: () => (
                       <ChevronDown className="w-3.5 h-3.5 text-muted ml-1" />

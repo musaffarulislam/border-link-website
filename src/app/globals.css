@@ -219,3 +219,9 @@ select::-ms-expand {
   opacity: 1;
   transform: scale(1.2);
 }
+
+/* react-phone-number-input flag — set explicit dimensions to avoid CLS */
+.PhoneInputCountryIconImg {
+  width: 20px !important;
+  height: 14px !important;
+}

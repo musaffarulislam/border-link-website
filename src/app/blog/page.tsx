@@ -2,7 +2,9 @@ import { Metadata } from "next";
 import BlogContactCTA from "@/components/blogPage/BlogContactCTA";
 
 export const metadata: Metadata = {
-  title: "Blog – Customs Clearance & Logistics Guides Dubai",
+  title: {
+    absolute: "Blog – Customs Clearance & Logistics Guides Dubai | Border Link",
+  },
   description:
     "Tips, guides, and insights on customs clearance, import/export regulations, freight forwarding, and logistics in Dubai and the UAE.",
   alternates: { canonical: "https://borderlink.info/blog" },

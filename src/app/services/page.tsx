@@ -2,7 +2,9 @@ import { Metadata } from "next";
 import ContactCTA from "@/components/aboutPage/ContactCTA";
 
 export const metadata: Metadata = {
-  title: "Customs & Logistics Services Dubai | Border Link",
+  title: {
+    absolute: "Customs & Logistics Services Dubai | Border Link",
+  },
   description:
     "Expert customs clearance, freight forwarding, approvals, and logistics across all UAE borders. Fast, reliable, fully compliant.",
   alternates: { canonical: "https://borderlink.info/services" },

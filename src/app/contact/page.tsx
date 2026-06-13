@@ -9,7 +9,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact Border Link Customs Broker Dubai",
   description:
-    "Contact Border Link Cargo & Customs Broker LLC for fast customs clearance, freight forwarding, and logistics across Dubai and UAE. Call, WhatsApp, or email us.",
+    "Contact Border Link Cargo & Customs Broker LLC for fast customs clearance services. Call, WhatsApp, or email us in Dubai.",
   alternates: { canonical: "https://borderlink.info/contact" },
   keywords: [
     "contact customs broker Dubai",

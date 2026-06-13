@@ -1,20 +1,25 @@
 // components/BlogContactCTA.tsx
 import Link from "next/link";
 
-export default function BlogContactCTA() {
+export default function BlogContactCTA({
+  title = "Have Questions About Customs Clearance or Importing Goods?",
+  subtitle = "Reach out to Border Link for expert advice, guides, and support for your shipments and imports in Dubai and UAE.",
+}: {
+  title?: string;
+  subtitle?: string;
+}) {
   return (
     <section className="py-16">
       <div className="container mx-auto px-4 md:px-8">
         <div className="rounded-lg p-12 text-center shadow-lg bg-primary">
           {/* Heading */}
           <h2 className="text-3xl md:text-4xl font-bold text-white font-poppins mb-4">
-            Have Questions About Customs Clearance or Importing Goods?
+            {title}
           </h2>
 
           {/* Subtext */}
           <p className="text-gray-200 text-lg md:text-xl mb-8 font-inter">
-            Reach out to Border Link for expert advice, guides, and support for
-            your shipments and imports in Dubai and UAE.
+            {subtitle}
           </p>
 
           {/* CTA Button */}
