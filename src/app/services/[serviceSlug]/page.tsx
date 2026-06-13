@@ -7,32 +7,37 @@ import LogisticsContent from "@/components/services/LogisticsContent/LogisticsCo
 import { notFound } from "next/navigation";
 
 interface ServiceData {
-  title: string;
+  h1: string;
+  metaTitle: string;
   description: string;
   content: React.ReactNode;
 }
 
 const services: Record<string, ServiceData> = {
   "customs-clearance": {
-    title: "Customs Clearance Dubai & UAE Borders | Border Link",
+    h1: "Customs Clearance in Dubai & UAE Borders",
+    metaTitle: "Customs Clearance Dubai & UAE Borders | Border Link",
     description:
       "Fast, reliable customs clearance for businesses and individuals across Dubai and all UAE borders.",
     content: <CustomsContent />,
   },
   "approvals-registrations": {
-    title: "Approvals & Product Registration in Dubai | Border Link",
+    h1: "Approvals & Product Registration Services",
+    metaTitle: "Approvals & Product Registration in Dubai | Border Link",
     description:
       "Dubai Municipality and Ministry approvals, ensuring your products comply with all UAE regulations.",
     content: <ApprovalsContent />,
   },
   "logistics-transportation": {
-    title: "Logistics & Transport Dubai & GCC | Border Link",
+    h1: "Logistics & Transportation Solutions",
+    metaTitle: "Logistics & Transport Dubai & GCC | Border Link",
     description:
       "Land transport, container handling, and temperature-controlled cargo across Dubai, UAE, and GCC regions.",
     content: <LogisticsContent />,
   },
   "e-services": {
-    title: "24x7 E-Services for Customs & Logistics | Border Link",
+    h1: "24x7 E-Services for Your Business",
+    metaTitle: "24x7 E-Services for Customs & Logistics | Border Link",
     description:
       "Online customs support and documentation help for your shipments, with 24/7 tracking and clearance.",
     content: <EServicesContent />,
@@ -51,17 +56,17 @@ export async function generateMetadata({
 }) {
   const { serviceSlug } = await params; // Await the params Promise
   const service = services[serviceSlug];
-  
+
   if (!service) {
     return {
       title: "Service Not Found",
       description: "The requested service does not exist.",
     };
   }
-  
+
   return {
     title: {
-      absolute: service.title,
+      absolute: service.metaTitle,
     },
     description: service.description,
     alternates: {
@@ -78,12 +83,12 @@ export default async function ServicePage({
 }) {
   const { serviceSlug } = await params; // Await the params Promise
   const service = services[serviceSlug];
-  
+
   if (!service) return notFound();
 
   return (
     <>
-      <CustomsHero title={service.title} subtitle={service.description} />
+      <CustomsHero title={service.h1} subtitle={service.description} />
       {service.content}
     </>
   );

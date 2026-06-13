@@ -9,7 +9,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "About Border Link – Dubai's Trusted Customs Broker | Border Link",
+    absolute: "About Border Link | Trusted Customs Broker Dubai",
   },
   description:
     "Learn about Border Link Cargo & Customs Broker LLC – our mission, expert team, and years of experience at Hatta border and across UAE.",
